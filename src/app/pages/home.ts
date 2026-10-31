@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLocationDot, faPizzaSlice, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { ServiceStatus } from '../schedule/service-status';
 import { Mascot } from '../shared/mascot';
 import { Ticker } from '../shared/ticker';
 
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, FaIconComponent, Mascot, Ticker],
+  imports: [RouterLink, FaIconComponent, Mascot, ServiceStatus, Ticker],
   template: `
     <section
       class="mx-auto grid max-w-6xl gap-6 px-4 pt-2 pb-8 text-center md:grid-cols-[1.25fr_1fr] md:items-center md:gap-10 md:px-6 md:pb-12 md:text-left"
@@ -22,11 +23,7 @@ import { Ticker } from '../shared/ticker';
       </div>
 
       <div class="grid gap-2.5">
-        <div class="rounded-xl bg-brun p-4 text-center text-creme">
-          <p class="text-xs font-extrabold tracking-widest text-vert uppercase">Cette semaine</p>
-          <p class="mt-1 font-titre text-lg text-jaune">Où est le camion ?</p>
-          <p class="mt-1 text-sm">Lieux et horaires de la semaine</p>
-        </div>
+        <app-service-status />
         <a routerLink="/emplacements" class="btn btn-orange">
           <fa-icon [icon]="locationIcon" aria-hidden="true" />
           Voir les emplacements
