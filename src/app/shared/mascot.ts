@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-mascot',
-  host: { class: 'block' },
+  host: { class: 'mascot block' },
   template: `
     <svg
       viewBox="0 0 120 120"

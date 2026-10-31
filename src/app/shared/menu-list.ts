@@ -6,9 +6,12 @@ import { formatPrice } from './format-price';
   selector: 'app-menu-list',
   host: { class: 'block' },
   template: `
-    <ul>
+    <ul class="cascade">
       @for (item of items(); track item.name) {
-        <li class="border-b-2 border-dashed border-brown/50 py-3 text-left">
+        <li
+          class="border-b-2 border-dashed border-brown/50 py-3 text-left"
+          [style.--cascade-index]="$index"
+        >
           <div class="flex items-baseline justify-between gap-4">
             <span class="font-bold">{{ item.name }}</span>
             <span class="shrink-0 font-bold whitespace-nowrap">{{ price(item) }}</span>
