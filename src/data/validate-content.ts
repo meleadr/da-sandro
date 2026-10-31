@@ -86,7 +86,14 @@ export function findPublishErrors(content: SiteContent): string[] {
   if (schedule.provisional) errors.push('schedule: still provisional');
   if (menu.provisional) errors.push('menu: still provisional');
 
-  for (const field of ['name', 'legalName', 'legalAddress', 'companyNumber'] as const) {
+  for (const field of [
+    'name',
+    'legalName',
+    'legalForm',
+    'legalAddress',
+    'companyNumber',
+    'vatNumber',
+  ] as const) {
     if (isBlank(business[field])) {
       errors.push(`business: missing ${field}`);
     }

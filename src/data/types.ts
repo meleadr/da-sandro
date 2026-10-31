@@ -6,12 +6,14 @@ export interface Draftable {
 export interface Business extends Draftable {
   readonly name: string;
   readonly legalName: string;
+  readonly legalForm: string;
   /** International format, for example +32470123456. */
   readonly phone: string;
   readonly email: string;
   /** Displayed in the legal notice only: the business has no public address. */
   readonly legalAddress: string;
   readonly companyNumber: string;
+  readonly vatNumber: string;
   readonly areaServed: string;
   readonly socialLinks: readonly SocialLink[];
 }

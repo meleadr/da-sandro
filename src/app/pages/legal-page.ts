@@ -8,12 +8,18 @@ import { business } from '../../data/business';
       <h1 class="titre-sticker text-center text-3xl md:text-5xl">Mentions légales</h1>
 
       <h2 class="mt-10 font-titre text-xl">Éditeur du site</h2>
-      <p class="mt-2">{{ business.legalName || business.name }}</p>
+      <p class="mt-2">{{ business.legalName || business.name }}, exerçant sous le nom {{ business.name }}</p>
+      @if (business.legalForm) {
+        <p>Forme juridique : {{ business.legalForm }}</p>
+      }
       @if (business.legalAddress) {
         <p>{{ business.legalAddress }}</p>
       }
       @if (business.companyNumber) {
-        <p>Numéro d'entreprise : {{ business.companyNumber }}</p>
+        <p>Numéro d'entreprise (BCE) : {{ business.companyNumber }}</p>
+      }
+      @if (business.vatNumber) {
+        <p>TVA : {{ business.vatNumber }}</p>
       }
       @if (business.email) {
         <p>E-mail : {{ business.email }}</p>
