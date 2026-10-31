@@ -20,75 +20,75 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
   host: { class: 'block' },
   template: `
     @if (status() === 'sent') {
-      <div class="rounded-xl bg-brun p-6 text-center text-creme" role="status">
-        <p class="font-titre text-xl text-jaune">Merci !</p>
+      <div class="rounded-xl bg-brown p-6 text-center text-cream" role="status">
+        <p class="font-display text-xl text-yellow">Merci !</p>
         <p class="mt-2">Votre demande est bien partie. Vous recevrez une réponse par e-mail.</p>
       </div>
     } @else {
       <form class="grid gap-4 text-left sm:grid-cols-2" [formGroup]="form" (ngSubmit)="submit()" novalidate>
         <div>
-          <label class="champ-label" for="eventType">Type d'événement *</label>
-          <select id="eventType" class="champ" formControlName="eventType" [attr.aria-invalid]="invalid('eventType')">
+          <label class="field-label" for="eventType">Type d'événement *</label>
+          <select id="eventType" class="field" formControlName="eventType" [attr.aria-invalid]="invalid('eventType')">
             <option value="">Choisir</option>
             @for (type of eventTypes; track type) {
               <option [value]="type">{{ type }}</option>
             }
           </select>
           @if (error('eventType'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
-          <label class="champ-label" for="date">Date *</label>
-          <input id="date" class="champ" type="date" formControlName="date" [attr.aria-invalid]="invalid('date')" />
+          <label class="field-label" for="date">Date *</label>
+          <input id="date" class="field" type="date" formControlName="date" [attr.aria-invalid]="invalid('date')" />
           @if (error('date'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
-          <label class="champ-label" for="location">Lieu *</label>
-          <input id="location" class="champ" type="text" formControlName="location" [attr.aria-invalid]="invalid('location')" />
+          <label class="field-label" for="location">Lieu *</label>
+          <input id="location" class="field" type="text" formControlName="location" [attr.aria-invalid]="invalid('location')" />
           @if (error('location'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
-          <label class="champ-label" for="guests">Nombre de personnes *</label>
-          <input id="guests" class="champ" type="number" min="1" inputmode="numeric" formControlName="guests" [attr.aria-invalid]="invalid('guests')" />
+          <label class="field-label" for="guests">Nombre de personnes *</label>
+          <input id="guests" class="field" type="number" min="1" inputmode="numeric" formControlName="guests" [attr.aria-invalid]="invalid('guests')" />
           @if (error('guests'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
-          <label class="champ-label" for="name">Votre nom *</label>
-          <input id="name" class="champ" type="text" autocomplete="name" formControlName="name" [attr.aria-invalid]="invalid('name')" />
+          <label class="field-label" for="name">Votre nom *</label>
+          <input id="name" class="field" type="text" autocomplete="name" formControlName="name" [attr.aria-invalid]="invalid('name')" />
           @if (error('name'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
-          <label class="champ-label" for="email">Votre e-mail *</label>
-          <input id="email" class="champ" type="email" autocomplete="email" formControlName="email" [attr.aria-invalid]="invalid('email')" />
+          <label class="field-label" for="email">Votre e-mail *</label>
+          <input id="email" class="field" type="email" autocomplete="email" formControlName="email" [attr.aria-invalid]="invalid('email')" />
           @if (error('email'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
         <div class="sm:col-span-2">
-          <label class="champ-label" for="phone">Téléphone</label>
-          <input id="phone" class="champ" type="tel" autocomplete="tel" formControlName="phone" />
+          <label class="field-label" for="phone">Téléphone</label>
+          <input id="phone" class="field" type="tel" autocomplete="tel" formControlName="phone" />
         </div>
 
         <div class="sm:col-span-2">
-          <label class="champ-label" for="message">Message</label>
-          <textarea id="message" class="champ" rows="4" formControlName="message"></textarea>
+          <label class="field-label" for="message">Message</label>
+          <textarea id="message" class="field" rows="4" formControlName="message"></textarea>
           @if (error('message'); as message) {
-            <p class="champ-erreur">{{ message }}</p>
+            <p class="field-error">{{ message }}</p>
           }
         </div>
 
@@ -100,12 +100,12 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
 
         <div class="sm:col-span-2">
           @if (status() === 'failed') {
-            <p class="mb-3 rounded-lg bg-brun p-3 text-center text-sm text-creme" role="alert">
+            <p class="mb-3 rounded-lg bg-brown p-3 text-center text-sm text-cream" role="alert">
               L'envoi a échoué, mais votre demande est conservée ci-dessus. Réessayez, ou appelez-nous
               au <a class="font-bold underline" [href]="'tel:' + phone">{{ phone }}</a>.
             </p>
           }
-          <button type="submit" class="btn btn-brun w-full" [disabled]="status() === 'sending'">
+          <button type="submit" class="btn btn-brown w-full" [disabled]="status() === 'sending'">
             {{ status() === 'sending' ? 'Envoi…' : 'Demander un devis' }}
           </button>
           <p class="mt-3 text-center text-xs font-semibold">
@@ -167,7 +167,7 @@ export class EventForm {
 
     this.status.set('sending');
     try {
-      const response = await fetch('/api/demande', {
+      const response = await fetch('/api/event-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.form.getRawValue()),

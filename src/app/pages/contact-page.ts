@@ -11,8 +11,8 @@ import { SocialLinks } from '../shared/social-links';
   imports: [RouterLink, FaIconComponent, SocialLinks],
   template: `
     <section class="mx-auto max-w-xl px-4 pt-6 pb-12 text-center">
-      <span class="etiquette">Une question ?</span>
-      <h1 class="titre-sticker mt-4 text-4xl md:text-6xl">Contact</h1>
+      <span class="tag">Une question ?</span>
+      <h1 class="title-sticker mt-4 text-4xl md:text-6xl">Contact</h1>
 
       <div class="mt-8 grid gap-3">
         @if (business.phone) {
@@ -22,7 +22,7 @@ import { SocialLinks } from '../shared/social-links';
           </a>
         }
         @if (business.email) {
-          <a [href]="'mailto:' + business.email" class="btn btn-contour">
+          <a [href]="'mailto:' + business.email" class="btn btn-outline">
             <fa-icon [icon]="emailIcon" aria-hidden="true" />
             {{ business.email }}
           </a>
@@ -30,7 +30,7 @@ import { SocialLinks } from '../shared/social-links';
         @if (business.socialLinks.length > 0) {
           <app-social-links class="justify-center" [links]="business.socialLinks" />
         }
-        <a routerLink="/evenements" class="btn btn-brun">Organiser un événement</a>
+        <a routerLink="/evenements" class="btn btn-brown">Organiser un événement</a>
       </div>
     </section>
   `,

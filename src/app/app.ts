@@ -9,13 +9,13 @@ import { SiteHeader } from './layout/site-header';
   host: { class: 'flex min-h-dvh flex-col' },
   template: `
     <a
-      href="#contenu"
-      class="sr-only focus:not-sr-only focus:absolute focus:z-30 focus:m-2 focus:rounded-lg focus:bg-brun focus:p-3 focus:text-creme"
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-30 focus:m-2 focus:rounded-lg focus:bg-brown focus:p-3 focus:text-cream"
     >
       Aller au contenu
     </a>
     <app-site-header />
-    <main id="contenu" class="flex-1">
+    <main id="content" class="flex-1">
       <router-outlet />
     </main>
     <app-site-footer />

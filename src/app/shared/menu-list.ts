@@ -8,7 +8,7 @@ import { formatPrice } from './format-price';
   template: `
     <ul>
       @for (item of items(); track item.name) {
-        <li class="border-b-2 border-dashed border-brun/50 py-3 text-left">
+        <li class="border-b-2 border-dashed border-brown/50 py-3 text-left">
           <div class="flex items-baseline justify-between gap-4">
             <span class="font-bold">{{ item.name }}</span>
             <span class="shrink-0 font-bold whitespace-nowrap">{{ price(item) }}</span>

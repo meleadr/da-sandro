@@ -38,7 +38,7 @@ const PREVIEW_SIZE = 3;
     >
       <div>
         <app-mascot class="mx-auto mb-3 size-28 md:mx-0 md:size-40" />
-        <h1 class="titre-sticker text-[2.6rem] md:text-7xl">Da Sandro</h1>
+        <h1 class="title-sticker text-[2.6rem] md:text-7xl">Da Sandro</h1>
         <p class="mt-4 text-sm font-extrabold uppercase md:text-base">
           Pizzeria food truck à Liège et Grâce-Hollogne
         </p>
@@ -50,12 +50,12 @@ const PREVIEW_SIZE = 3;
           <fa-icon [icon]="locationIcon" aria-hidden="true" />
           Voir les emplacements
         </a>
-        <a routerLink="/carte" class="btn btn-contour">
+        <a routerLink="/carte" class="btn btn-outline">
           <fa-icon [icon]="pizzaIcon" aria-hidden="true" />
           Voir la carte
         </a>
         @if (phone) {
-          <a [href]="'tel:' + phone" class="btn btn-contour">
+          <a [href]="'tel:' + phone" class="btn btn-outline">
             <fa-icon [icon]="phoneIcon" aria-hidden="true" />
             Appeler
           </a>
@@ -65,31 +65,31 @@ const PREVIEW_SIZE = 3;
 
     <app-ticker />
 
-    <section appReveal class="bg-brun px-4 py-10 text-center text-creme">
+    <section appReveal class="bg-brown px-4 py-10 text-center text-cream">
       <div class="mx-auto max-w-2xl">
-        <span class="etiquette">Où nous trouver</span>
-        <h2 class="mt-3 mb-5 font-titre text-2xl md:text-3xl">La semaine du camion</h2>
+        <span class="tag">Où nous trouver</span>
+        <h2 class="mt-3 mb-5 font-display text-2xl md:text-3xl">La semaine du camion</h2>
         <app-weekly-schedule />
       </div>
     </section>
 
     <section appReveal class="px-4 py-10 text-center">
       <div class="mx-auto max-w-2xl">
-        <span class="etiquette">La carte</span>
-        <h2 class="mt-3 mb-3 font-titre text-2xl md:text-3xl">Nos pizzas</h2>
+        <span class="tag">La carte</span>
+        <h2 class="mt-3 mb-3 font-display text-2xl md:text-3xl">Nos pizzas</h2>
         <app-menu-list [items]="preview" />
-        <a routerLink="/carte" class="btn btn-brun mt-6">Toute la carte</a>
+        <a routerLink="/carte" class="btn btn-brown mt-6">Toute la carte</a>
       </div>
     </section>
 
     <section appReveal class="bg-orange px-4 py-10 text-center">
       <div class="mx-auto max-w-2xl">
-        <span class="etiquette bg-brun text-creme">Événements</span>
-        <h2 class="mt-3 font-titre text-2xl md:text-3xl">Le camion chez vous</h2>
+        <span class="tag bg-brown text-cream">Événements</span>
+        <h2 class="mt-3 font-display text-2xl md:text-3xl">Le camion chez vous</h2>
         <p class="mt-3 font-semibold">
           Mariages, anniversaires, entreprises : le camion se déplace partout en région liégeoise.
         </p>
-        <a routerLink="/evenements" class="btn btn-brun mt-5">
+        <a routerLink="/evenements" class="btn btn-brown mt-5">
           <fa-icon [icon]="truckIcon" aria-hidden="true" />
           Demander un devis
         </a>

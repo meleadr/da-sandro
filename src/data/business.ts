@@ -12,5 +12,9 @@ export const business: Business = {
   companyNumber: '0753.297.347',
   vatNumber: 'BE 0753.297.347',
   areaServed: 'Région liégeoise',
-  socialLinks: [],
+  // Placeholders: the production build refuses these until they point to the real pages.
+  socialLinks: [
+    { network: 'facebook', url: 'https://www.facebook.com/' },
+    { network: 'instagram', url: 'https://www.instagram.com/' },
+  ],
 };

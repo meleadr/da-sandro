@@ -98,6 +98,11 @@ export function findPublishErrors(content: SiteContent): string[] {
       errors.push(`business: missing ${field}`);
     }
   }
+  for (const link of business.socialLinks) {
+    if (new URL(link.url).pathname === '/') {
+      errors.push(`business: ${link.network} link is still a placeholder`);
+    }
+  }
   if (!PHONE.test(business.phone)) errors.push('business: invalid phone');
   if (!EMAIL.test(business.email)) errors.push('business: invalid email');
 

@@ -16,8 +16,8 @@ import { MapEmbed } from '../shared/map-embed';
   template: `
     @if (place(); as place) {
       <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-        <span class="etiquette">Food truck pizza</span>
-        <h1 class="titre-sticker mt-4 text-4xl md:text-6xl">{{ place.name }}</h1>
+        <span class="tag">Food truck pizza</span>
+        <h1 class="title-sticker mt-4 text-4xl md:text-6xl">{{ place.name }}</h1>
         <p class="mt-4 font-bold">
           @if (place.address) {
             {{ place.address }}, {{ place.postalCode }} {{ place.city }}
@@ -36,9 +36,9 @@ import { MapEmbed } from '../shared/map-embed';
         }
       </section>
 
-      <section class="bg-brun px-4 py-10 text-center text-creme">
+      <section class="bg-brown px-4 py-10 text-center text-cream">
         <div class="mx-auto max-w-2xl">
-          <h2 class="mb-5 font-titre text-2xl">Horaires à {{ place.name }}</h2>
+          <h2 class="mb-5 font-display text-2xl">Horaires à {{ place.name }}</h2>
           <app-weekly-schedule [placeSlug]="place.slug" />
         </div>
       </section>
@@ -50,7 +50,7 @@ import { MapEmbed } from '../shared/map-embed';
       }
 
       <p class="py-10 text-center">
-        <a routerLink="/carte" class="btn btn-brun">Voir la carte</a>
+        <a routerLink="/carte" class="btn btn-brown">Voir la carte</a>
       </p>
     }
   `,

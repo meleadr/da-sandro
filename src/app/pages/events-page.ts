@@ -8,8 +8,8 @@ import { Reveal } from '../shared/reveal';
   imports: [EventForm, Reveal],
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-      <span class="etiquette">Événements</span>
-      <h1 class="titre-sticker mt-4 text-4xl md:text-6xl">Le camion chez vous</h1>
+      <span class="tag">Événements</span>
+      <h1 class="title-sticker mt-4 text-4xl md:text-6xl">Le camion chez vous</h1>
       <p class="mt-5 font-semibold">
         Mariage, anniversaire, événement d'entreprise : Da Sandro se déplace partout en région
         liégeoise pour servir ses pizzas à vos invités.
@@ -18,7 +18,7 @@ import { Reveal } from '../shared/reveal';
 
     <section appReveal class="bg-orange px-4 py-10">
       <div class="mx-auto max-w-2xl">
-        <h2 class="mb-6 text-center font-titre text-2xl">Demander un devis</h2>
+        <h2 class="mb-6 text-center font-display text-2xl">Demander un devis</h2>
         <app-event-form />
       </div>
     </section>

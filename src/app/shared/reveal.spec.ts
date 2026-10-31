@@ -36,18 +36,18 @@ describe('Reveal', () => {
   it('hides a section below the fold until it is reached', async () => {
     stubBrowser(false, 5000);
 
-    expect((await render()).classList).toContain('reveal-attente');
+    expect((await render()).classList).toContain('reveal-pending');
   });
 
   it('leaves a section already in view alone', async () => {
     stubBrowser(false, 10);
 
-    expect((await render()).classList).not.toContain('reveal-attente');
+    expect((await render()).classList).not.toContain('reveal-pending');
   });
 
   it('does nothing when the visitor asks for less motion', async () => {
     stubBrowser(true, 5000);
 
-    expect((await render()).classList).not.toContain('reveal-attente');
+    expect((await render()).classList).not.toContain('reveal-pending');
   });
 });

@@ -1,6 +1,6 @@
 import { afterNextRender, DestroyRef, Directive, ElementRef, inject } from '@angular/core';
 
-const HIDDEN = 'reveal-attente';
+const HIDDEN = 'reveal-pending';
 const SHOWN = 'reveal-visible';
 
 /**

@@ -9,7 +9,7 @@ import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
   imports: [FaIconComponent],
   host: { class: 'block' },
   template: `
-    <div class="aspect-4/3 overflow-hidden rounded-xl bg-brun text-creme md:aspect-video">
+    <div class="aspect-4/3 overflow-hidden rounded-xl bg-brown text-cream md:aspect-video">
       @if (visible()) {
         <iframe
           class="size-full border-0"
@@ -20,7 +20,7 @@ import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
         ></iframe>
       } @else {
         <div class="flex size-full flex-col items-center justify-center gap-3 p-5 text-center">
-          <fa-icon class="text-3xl text-jaune" [icon]="mapIcon" aria-hidden="true" />
+          <fa-icon class="text-3xl text-yellow" [icon]="mapIcon" aria-hidden="true" />
           <button type="button" class="btn btn-orange" (click)="visible.set(true)">
             Afficher la carte
           </button>

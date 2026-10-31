@@ -16,7 +16,7 @@ const NETWORKS: Record<SocialLink['network'], { label: string; icon: IconDefinit
   template: `
     @for (link of links(); track link.url) {
       <a
-        class="flex size-10 items-center justify-center rounded-full bg-creme text-lg text-brun transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        class="flex size-10 items-center justify-center rounded-full bg-cream text-lg text-brown transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         rel="noopener"
         target="_blank"
         [attr.aria-label]="'Da Sandro sur ' + network(link).label"

@@ -11,11 +11,11 @@ const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: 'https://www.linkedin.co
 @Component({
   selector: 'app-site-footer',
   imports: [RouterLink, FaIconComponent, SocialLinks],
-  host: { class: 'block bg-brun text-creme' },
+  host: { class: 'block bg-brown text-cream' },
   template: `
     <footer class="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2 md:items-end">
       <div>
-        <p class="font-titre text-xl text-jaune">Da Sandro</p>
+        <p class="font-display text-xl text-yellow">Da Sandro</p>
         <p class="mt-1 text-sm">Pizzeria food truck en région liégeoise</p>
         @if (socialLinks.length > 0) {
           <app-social-links class="mt-3" [links]="socialLinks" />

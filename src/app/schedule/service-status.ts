@@ -19,10 +19,10 @@ const REFRESH_MS = 60_000;
  */
 @Component({
   selector: 'app-service-status',
-  host: { class: 'block rounded-xl bg-brun p-4 text-center text-creme' },
+  host: { class: 'block rounded-xl bg-brown p-4 text-center text-cream' },
   template: `
-    <p class="text-xs font-extrabold tracking-widest text-vert uppercase">{{ eyebrow() }}</p>
-    <p class="mt-1 font-titre text-lg text-jaune">{{ placeName() }}</p>
+    <p class="text-xs font-extrabold tracking-widest text-green uppercase">{{ eyebrow() }}</p>
+    <p class="mt-1 font-display text-lg text-yellow">{{ placeName() }}</p>
     <p class="mt-1 text-sm">{{ details() }}</p>
     @if (socialUrl) {
       <p class="mt-2 text-xs">

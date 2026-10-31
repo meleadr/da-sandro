@@ -80,6 +80,30 @@ describe('content validation', () => {
     expect(findPublishErrors(content)).toContain('business: invalid phone');
   });
 
+  it('refuses a placeholder social link', () => {
+    const content: SiteContent = {
+      ...publishable,
+      business: {
+        ...publishable.business,
+        socialLinks: [{ network: 'facebook', url: 'https://www.facebook.com/' }],
+      },
+    };
+
+    expect(findPublishErrors(content)).toContain('business: facebook link is still a placeholder');
+  });
+
+  it('accepts a real social link', () => {
+    const content: SiteContent = {
+      ...publishable,
+      business: {
+        ...publishable.business,
+        socialLinks: [{ network: 'facebook', url: 'https://www.facebook.com/dasandro' }],
+      },
+    };
+
+    expect(findPublishErrors(content)).toEqual([]);
+  });
+
   it('refuses a place without any service', () => {
     const content: SiteContent = {
       ...publishable,

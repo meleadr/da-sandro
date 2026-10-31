@@ -4,9 +4,9 @@ const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région li
 
 @Component({
   selector: 'app-ticker',
-  host: { class: 'block overflow-hidden bg-orange py-2.5 text-brun' },
+  host: { class: 'block overflow-hidden bg-orange py-2.5 text-brown' },
   template: `
-    <div class="flex w-max animate-defile motion-reduce:animate-none" aria-hidden="true">
+    <div class="flex w-max animate-marquee motion-reduce:animate-none" aria-hidden="true">
       @for (copy of copies; track copy) {
         <ul class="flex shrink-0">
           @for (item of items; track item) {

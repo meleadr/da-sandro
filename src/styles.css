@@ -17,28 +17,28 @@
 }
 
 @theme {
-  --color-carton: #c99a63;
-  --color-brun: #3a2413;
-  --color-brun-clair: #4a3020;
-  --color-creme: #f9e7be;
+  --color-cardboard: #c99a63;
+  --color-brown: #3a2413;
+  --color-brown-light: #4a3020;
+  --color-cream: #f9e7be;
   --color-orange: #f07c12;
-  --color-jaune: #f9c22e;
-  --color-vert: #8be39a;
-  --color-champ: #fff3dd;
+  --color-yellow: #f9c22e;
+  --color-green: #8be39a;
+  --color-field: #fff3dd;
 
-  --font-titre: 'Chango', ui-serif, Georgia, serif;
+  --font-display: 'Chango', ui-serif, Georgia, serif;
   --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --animate-defile: defile 30s linear infinite;
-  --animate-balance: balance 4s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-sway: sway 4s ease-in-out infinite;
 
-  @keyframes defile {
+  @keyframes marquee {
     to {
       transform: translateX(-50%);
     }
   }
 
-  @keyframes balance {
+  @keyframes sway {
     0%,
     100% {
       transform: rotate(-3deg);
@@ -62,35 +62,35 @@
   }
 
   body {
-    background-color: var(--color-carton);
+    background-color: var(--color-cardboard);
     background-image: repeating-linear-gradient(
       90deg,
       rgb(90 55 20 / 0.07) 0 2px,
       transparent 2px 7px
     );
-    color: var(--color-brun);
+    color: var(--color-brown);
     font-family: var(--font-sans);
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-brun);
+    outline: 3px solid var(--color-brown);
     outline-offset: 2px;
   }
 
-  .bg-brun :focus-visible {
-    outline-color: var(--color-jaune);
+  .bg-brown :focus-visible {
+    outline-color: var(--color-yellow);
   }
 }
 
 @layer components {
-  /* Le crème seul sur le carton est trop peu contrasté : le contour brun assure la lisibilité. */
-  .titre-sticker {
-    color: var(--color-creme);
-    font-family: var(--font-titre);
+  /* Cream alone on cardboard lacks contrast: the brown outline keeps the title readable. */
+  .title-sticker {
+    color: var(--color-cream);
+    font-family: var(--font-display);
     line-height: 1;
     paint-order: stroke fill;
-    -webkit-text-stroke: 0.14em var(--color-brun);
-    text-shadow: 0.06em 0.07em 0 var(--color-brun);
+    -webkit-text-stroke: 0.14em var(--color-brown);
+    text-shadow: 0.06em 0.07em 0 var(--color-brown);
   }
 
   .btn {
@@ -124,39 +124,39 @@
     font-size: 0.6875rem;
   }
 
-  .btn-brun {
-    background-color: var(--color-brun);
-    color: var(--color-creme);
+  .btn-brown {
+    background-color: var(--color-brown);
+    color: var(--color-cream);
   }
 
   .btn-orange {
     background-color: var(--color-orange);
-    box-shadow: 0 3px 0 var(--color-brun);
-    color: var(--color-brun);
+    box-shadow: 0 3px 0 var(--color-brown);
+    color: var(--color-brown);
   }
 
-  .btn-contour {
+  .btn-outline {
     border: 2px solid currentColor;
   }
 
-  .etiquette {
+  .tag {
     display: inline-block;
     transform: rotate(-2deg);
     border-radius: 0.5rem;
     background-color: var(--color-orange);
     padding: 0.3rem 0.7rem;
-    color: var(--color-brun);
+    color: var(--color-brown);
     font-size: 0.75rem;
     font-weight: 900;
     text-transform: uppercase;
   }
 
-  .reveal-attente {
+  .reveal-pending {
     opacity: 0;
     transform: translateY(1.25rem);
   }
 
-  .reveal-attente.reveal-visible {
+  .reveal-pending.reveal-visible {
     opacity: 1;
     transform: none;
     transition:
@@ -170,27 +170,27 @@
     transform: none;
   }
 
-  .champ-label {
+  .field-label {
     display: block;
     margin-bottom: 0.25rem;
     font-size: 0.875rem;
     font-weight: 700;
   }
 
-  .champ {
+  .field {
     width: 100%;
-    border: 2px solid var(--color-brun);
+    border: 2px solid var(--color-brown);
     border-radius: 0.5rem;
-    background-color: var(--color-champ);
+    background-color: var(--color-field);
     padding: 0.6rem 0.75rem;
-    color: var(--color-brun);
+    color: var(--color-brown);
   }
 
-  .champ[aria-invalid='true'] {
+  .field[aria-invalid='true'] {
     border-width: 3px;
   }
 
-  .champ-erreur {
+  .field-error {
     margin-top: 0.25rem;
     font-size: 0.8125rem;
     font-weight: 800;

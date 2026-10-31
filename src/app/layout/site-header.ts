@@ -9,38 +9,38 @@ import { NAV_LINKS } from './nav-links';
   imports: [RouterLink, RouterLinkActive, FaIconComponent],
   template: `
     <header class="relative mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-      <a routerLink="/" class="font-titre text-lg text-brun">Da Sandro</a>
+      <a routerLink="/" class="font-display text-lg text-brown">Da Sandro</a>
 
       <nav aria-label="Navigation principale" class="hidden items-center gap-2 md:flex">
         @for (link of links; track link.path) {
           <a
             [routerLink]="link.path"
-            routerLinkActive="bg-brun text-creme"
-            class="btn btn-sm btn-contour"
+            routerLinkActive="bg-brown text-cream"
+            class="btn btn-sm btn-outline"
           >
             {{ link.label }}
           </a>
         }
-        <a routerLink="/carte" class="btn btn-sm btn-brun">La carte</a>
+        <a routerLink="/carte" class="btn btn-sm btn-brown">La carte</a>
       </nav>
 
       <div class="flex items-center gap-2 md:hidden">
-        <a routerLink="/carte" class="btn btn-sm btn-brun">La carte</a>
+        <a routerLink="/carte" class="btn btn-sm btn-brown">La carte</a>
         <details #menu class="group">
           <summary
-            class="flex size-10 cursor-pointer list-none items-center justify-center rounded-full border-2 border-brun text-brun [&::-webkit-details-marker]:hidden"
+            class="flex size-10 cursor-pointer list-none items-center justify-center rounded-full border-2 border-brown text-brown [&::-webkit-details-marker]:hidden"
             aria-label="Menu"
           >
             <fa-icon [icon]="menuIcon" aria-hidden="true" />
           </summary>
           <nav
             aria-label="Navigation mobile"
-            class="absolute inset-x-4 top-full z-20 grid gap-2 rounded-xl bg-brun p-3 shadow-lg"
+            class="absolute inset-x-4 top-full z-20 grid gap-2 rounded-xl bg-brown p-3 shadow-lg"
           >
             @for (link of links; track link.path) {
               <a
                 [routerLink]="link.path"
-                class="btn text-creme btn-contour"
+                class="btn text-cream btn-outline"
                 (click)="closeMenu()"
               >
                 {{ link.label }}

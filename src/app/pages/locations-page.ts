@@ -13,23 +13,23 @@ import { Reveal } from '../shared/reveal';
   imports: [RouterLink, FaIconComponent, Reveal, ServiceStatus, WeeklySchedule],
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-      <span class="etiquette">Où nous trouver</span>
-      <h1 class="titre-sticker mt-4 mb-6 text-4xl md:text-6xl">Emplacements</h1>
+      <span class="tag">Où nous trouver</span>
+      <h1 class="title-sticker mt-4 mb-6 text-4xl md:text-6xl">Emplacements</h1>
       <app-service-status />
     </section>
 
-    <section appReveal class="bg-brun px-4 py-10 text-center text-creme">
+    <section appReveal class="bg-brown px-4 py-10 text-center text-cream">
       <div class="mx-auto max-w-2xl">
-        <h2 class="mb-5 font-titre text-2xl">La semaine du camion</h2>
+        <h2 class="mb-5 font-display text-2xl">La semaine du camion</h2>
         <app-weekly-schedule />
       </div>
     </section>
 
     <section appReveal class="mx-auto max-w-2xl px-4 py-10 text-center">
-      <h2 class="mb-5 font-titre text-2xl">Nos lieux</h2>
+      <h2 class="mb-5 font-display text-2xl">Nos lieux</h2>
       <div class="grid gap-3 sm:grid-cols-2">
         @for (place of places; track place.slug) {
-          <a [routerLink]="place.slug" class="btn btn-contour">
+          <a [routerLink]="place.slug" class="btn btn-outline">
             <fa-icon [icon]="locationIcon" aria-hidden="true" />
             {{ place.name }}
           </a>
