@@ -12,7 +12,7 @@ import { MapEmbed } from '../shared/map-embed';
   template: `
     @if (place(); as place) {
       <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-        <span class="etiquette">Pizzas au camion</span>
+        <span class="etiquette">Food truck pizza</span>
         <h1 class="titre-sticker mt-4 text-4xl md:text-6xl">{{ place.name }}</h1>
         <p class="mt-4 font-bold">
           @if (place.address) {

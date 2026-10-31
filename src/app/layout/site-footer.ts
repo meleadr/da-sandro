@@ -10,7 +10,7 @@ import { NAV_LINKS } from './nav-links';
     <footer class="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2 md:items-end">
       <div>
         <p class="font-titre text-xl text-jaune">Da Sandro</p>
-        <p class="mt-1 text-sm">Pizzas au camion en région liégeoise</p>
+        <p class="mt-1 text-sm">Pizzeria food truck en région liégeoise</p>
       </div>
 
       <nav aria-label="Pied de page" class="flex flex-wrap gap-x-5 gap-y-2 text-sm md:justify-end">

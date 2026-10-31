@@ -28,7 +28,7 @@ const PREVIEW_SIZE = 3;
         <app-mascot class="mx-auto mb-3 size-28 md:mx-0 md:size-40" />
         <h1 class="titre-sticker text-[2.6rem] md:text-7xl">Da Sandro</h1>
         <p class="mt-4 text-sm font-extrabold uppercase md:text-base">
-          Pizzas au camion à Liège et Grâce-Hollogne
+          Pizzeria food truck à Liège et Grâce-Hollogne
         </p>
       </div>
 
