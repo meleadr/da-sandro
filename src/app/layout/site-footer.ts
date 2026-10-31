@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NAV_LINKS } from './nav-links';
 
 @Component({
   selector: 'app-site-footer',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink],
   host: { class: 'block bg-brun text-creme' },
   template: `

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, viewChild } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,6 @@ import { NAV_LINKS } from './nav-links';
 
 @Component({
   selector: 'app-site-header',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive, FaIconComponent],
   template: `
     <header class="relative mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">

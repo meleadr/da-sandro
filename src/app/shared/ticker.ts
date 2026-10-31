@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région liégeoise'];
 
 @Component({
   selector: 'app-ticker',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block overflow-hidden bg-orange py-2.5 text-brun' },
   template: `
     <div class="flex w-max animate-defile motion-reduce:animate-none" aria-hidden="true">

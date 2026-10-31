@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLocationDot, faPizzaSlice, faTruck } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,6 @@ import { Ticker } from '../shared/ticker';
 
 @Component({
   selector: 'app-home',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, FaIconComponent, Mascot, ServiceStatus, Ticker],
   template: `
     <section

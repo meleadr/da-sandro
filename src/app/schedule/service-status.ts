@@ -1,6 +1,5 @@
 import {
   afterNextRender,
-  ChangeDetectionStrategy,
   Component,
   computed,
   DestroyRef,
@@ -20,7 +19,6 @@ const REFRESH_MS = 60_000;
  */
 @Component({
   selector: 'app-service-status',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block rounded-xl bg-brun p-4 text-center text-creme' },
   template: `
     <p class="text-xs font-extrabold tracking-widest text-vert uppercase">{{ eyebrow() }}</p>

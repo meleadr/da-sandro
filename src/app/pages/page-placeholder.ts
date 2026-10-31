@@ -1,9 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 /** Page temporaire : chaque route sera remplacée par sa vraie page. */
 @Component({
   selector: 'app-page-placeholder',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="mx-auto max-w-3xl px-4 py-16 text-center">
       <span class="etiquette">Bientôt</span>
