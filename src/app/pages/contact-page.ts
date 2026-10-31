@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faFacebook, faInstagram, faTiktok, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
 import type { SocialLink } from '../../data/types';
+import { Seo } from '../seo/seo';
 
 const SOCIAL_ICONS: Record<SocialLink['network'], IconDefinition> = {
   facebook: faFacebook,
@@ -48,6 +49,15 @@ export class ContactPage {
   protected readonly business = business;
   protected readonly emailIcon = faEnvelope;
   protected readonly phoneIcon = faPhone;
+
+  constructor() {
+    inject(Seo).set({
+      title: 'Contact | Da Sandro',
+      description:
+        'Contactez Da Sandro, pizzeria food truck en région liégeoise, par téléphone ou par e-mail.',
+      path: '/contact/',
+    });
+  }
 
   protected icon(link: SocialLink): IconDefinition {
     return SOCIAL_ICONS[link.network];

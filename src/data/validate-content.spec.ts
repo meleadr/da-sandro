@@ -5,6 +5,7 @@ import { findPublishErrors, findStructureErrors } from './validate-content';
 const publishable: SiteContent = {
   business: {
     provisional: false,
+    siteUrl: 'https://example.be',
     name: 'Da Sandro',
     legalName: 'Sandro Meledina',
     legalForm: 'Personne physique',

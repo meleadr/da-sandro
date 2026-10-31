@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { business } from '../../data/business';
+import { Seo } from '../seo/seo';
 
 @Component({
   selector: 'app-legal-page',
@@ -46,4 +47,12 @@ import { business } from '../../data/business';
 })
 export class LegalPage {
   protected readonly business = business;
+
+  constructor() {
+    inject(Seo).set({
+      title: 'Mentions légales | Da Sandro',
+      description: 'Mentions légales et vie privée du site Da Sandro.',
+      path: '/mentions-legales/',
+    });
+  }
 }

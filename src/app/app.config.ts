@@ -1,3 +1,4 @@
+import { LocationStrategy, TrailingSlashPathLocationStrategy } from '@angular/common';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import {
   provideRouter,
@@ -16,5 +17,7 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
     ),
     provideClientHydration(),
+    // Pages are served at /carte/: without this, every internal link would redirect.
+    { provide: LocationStrategy, useClass: TrailingSlashPathLocationStrategy },
   ],
 };

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EventForm } from '../events/event-form';
+import { Seo } from '../seo/seo';
 
 @Component({
   selector: 'app-events-page',
@@ -22,4 +23,13 @@ import { EventForm } from '../events/event-form';
     </section>
   `,
 })
-export class EventsPage {}
+export class EventsPage {
+  constructor() {
+    inject(Seo).set({
+      title: 'Food truck pizza pour mariage et événement à Liège | Da Sandro',
+      description:
+        "Un food truck pizza pour votre mariage, anniversaire ou événement d'entreprise en région liégeoise. Demandez votre devis à Da Sandro.",
+      path: '/evenements/',
+    });
+  }
+}

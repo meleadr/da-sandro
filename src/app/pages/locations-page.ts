@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { places } from '../../data/places';
 import { ServiceStatus } from '../schedule/service-status';
 import { WeeklySchedule } from '../schedule/weekly-schedule';
+import { Seo } from '../seo/seo';
 
 @Component({
   selector: 'app-locations-page',
@@ -39,4 +40,13 @@ import { WeeklySchedule } from '../schedule/weekly-schedule';
 export class LocationsPage {
   protected readonly locationIcon = faLocationDot;
   protected readonly places = places;
+
+  constructor() {
+    inject(Seo).set({
+      title: 'Emplacements et horaires du food truck | Da Sandro',
+      description:
+        'Où trouver le food truck Da Sandro cette semaine : lieux et horaires du camion à pizza en région liégeoise.',
+      path: '/emplacements/',
+    });
+  }
 }

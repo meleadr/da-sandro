@@ -2,6 +2,7 @@ import type { Business } from './types';
 
 export const business: Business = {
   provisional: false,
+  siteUrl: 'https://da-sandro.be',
   name: 'Da Sandro',
   legalName: 'Sandro Meledina',
   legalForm: 'Personne physique',

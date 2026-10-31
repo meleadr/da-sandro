@@ -4,6 +4,8 @@ export interface Draftable {
 }
 
 export interface Business extends Draftable {
+  /** Without a trailing slash. */
+  readonly siteUrl: string;
   readonly name: string;
   readonly legalName: string;
   readonly legalForm: string;

@@ -1,9 +1,13 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, effect, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faDiamondTurnRight } from '@fortawesome/free-solid-svg-icons';
+import { business } from '../../data/business';
 import { places } from '../../data/places';
+import { schedule } from '../../data/schedule';
 import { WeeklySchedule } from '../schedule/weekly-schedule';
+import { Seo } from '../seo/seo';
+import { buildPlaceSchema } from '../seo/structured-data';
 import { MapEmbed } from '../shared/map-embed';
 
 @Component({
@@ -70,4 +74,20 @@ export class PlacePage {
       ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`
       : null;
   });
+
+  constructor() {
+    const seo = inject(Seo);
+
+    effect(() => {
+      const place = this.place();
+      if (place) {
+        seo.set({
+          title: `Pizzeria food truck à ${place.name} | Da Sandro`,
+          description: `Da Sandro à ${place.name} : le food truck de pizzas italiennes, son emplacement et ses horaires.`,
+          path: `/emplacements/${place.slug}/`,
+          structuredData: buildPlaceSchema(business, place, schedule),
+        });
+      }
+    });
+  }
 }

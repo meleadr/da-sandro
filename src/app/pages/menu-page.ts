@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { business } from '../../data/business';
 import { menu } from '../../data/menu';
+import { Seo } from '../seo/seo';
+import { buildMenuSchema } from '../seo/structured-data';
 import { MenuList } from '../shared/menu-list';
 
 @Component({
@@ -21,4 +24,14 @@ import { MenuList } from '../shared/menu-list';
 })
 export class MenuPage {
   protected readonly menu = menu;
+
+  constructor() {
+    inject(Seo).set({
+      title: 'Carte et prix des pizzas | Da Sandro',
+      description:
+        'La carte de Da Sandro : Margherita, Regina, Capricciosa, Diavola et autres pizzas à la pâte artisanale, préparées selon la tradition italienne.',
+      path: '/carte/',
+      structuredData: buildMenuSchema(business, menu),
+    });
+  }
 }

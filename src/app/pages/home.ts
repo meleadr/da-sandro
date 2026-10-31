@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import {
@@ -11,6 +11,8 @@ import { business } from '../../data/business';
 import { menu } from '../../data/menu';
 import { ServiceStatus } from '../schedule/service-status';
 import { WeeklySchedule } from '../schedule/weekly-schedule';
+import { Seo } from '../seo/seo';
+import { buildBusinessSchema } from '../seo/structured-data';
 import { Mascot } from '../shared/mascot';
 import { MenuList } from '../shared/menu-list';
 import { Ticker } from '../shared/ticker';
@@ -92,4 +94,14 @@ export class Home {
   protected readonly truckIcon = faTruck;
   protected readonly phone = business.phone;
   protected readonly preview = menu.categories[0].items.slice(0, PREVIEW_SIZE);
+
+  constructor() {
+    inject(Seo).set({
+      title: 'Da Sandro | Pizzeria food truck à Liège et Grâce-Hollogne',
+      description:
+        'Da Sandro, pizzeria food truck en région liégeoise : pizzas italiennes à la pâte artisanale, et un camion qui se déplace pour vos mariages et événements.',
+      path: '/',
+      structuredData: buildBusinessSchema(business, menu),
+    });
+  }
 }

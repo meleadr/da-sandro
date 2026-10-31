@@ -8,11 +8,11 @@ import { MenuPage } from './pages/menu-page';
 import { PlacePage } from './pages/place-page';
 
 export const routes: Routes = [
-  { path: '', component: Home, title: 'Da Sandro' },
-  { path: 'carte', component: MenuPage, title: 'La carte | Da Sandro' },
-  { path: 'emplacements', component: LocationsPage, title: 'Emplacements | Da Sandro' },
-  { path: 'emplacements/:slug', component: PlacePage, title: 'Emplacement | Da Sandro' },
-  { path: 'evenements', component: EventsPage, title: 'Événements | Da Sandro' },
-  { path: 'contact', component: ContactPage, title: 'Contact | Da Sandro' },
-  { path: 'mentions-legales', component: LegalPage, title: 'Mentions légales | Da Sandro' },
+  { path: '', component: Home },
+  { path: 'carte', component: MenuPage },
+  { path: 'emplacements', component: LocationsPage },
+  { path: 'emplacements/:slug', component: PlacePage },
+  { path: 'evenements', component: EventsPage },
+  { path: 'contact', component: ContactPage },
+  { path: 'mentions-legales', component: LegalPage },
 ];
