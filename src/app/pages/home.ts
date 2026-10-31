@@ -15,13 +15,23 @@ import { Seo } from '../seo/seo';
 import { buildBusinessSchema } from '../seo/structured-data';
 import { Mascot } from '../shared/mascot';
 import { MenuList } from '../shared/menu-list';
+import { Reveal } from '../shared/reveal';
 import { Ticker } from '../shared/ticker';
 
 const PREVIEW_SIZE = 3;
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, FaIconComponent, Mascot, MenuList, ServiceStatus, Ticker, WeeklySchedule],
+  imports: [
+    RouterLink,
+    FaIconComponent,
+    Mascot,
+    MenuList,
+    Reveal,
+    ServiceStatus,
+    Ticker,
+    WeeklySchedule,
+  ],
   template: `
     <section
       class="mx-auto grid max-w-6xl gap-6 px-4 pt-2 pb-8 text-center md:grid-cols-[1.25fr_1fr] md:items-center md:gap-10 md:px-6 md:pb-12 md:text-left"
@@ -55,7 +65,7 @@ const PREVIEW_SIZE = 3;
 
     <app-ticker />
 
-    <section class="bg-brun px-4 py-10 text-center text-creme">
+    <section appReveal class="bg-brun px-4 py-10 text-center text-creme">
       <div class="mx-auto max-w-2xl">
         <span class="etiquette">Où nous trouver</span>
         <h2 class="mt-3 mb-5 font-titre text-2xl md:text-3xl">La semaine du camion</h2>
@@ -63,7 +73,7 @@ const PREVIEW_SIZE = 3;
       </div>
     </section>
 
-    <section class="px-4 py-10 text-center">
+    <section appReveal class="px-4 py-10 text-center">
       <div class="mx-auto max-w-2xl">
         <span class="etiquette">La carte</span>
         <h2 class="mt-3 mb-3 font-titre text-2xl md:text-3xl">Nos pizzas</h2>
@@ -72,7 +82,7 @@ const PREVIEW_SIZE = 3;
       </div>
     </section>
 
-    <section class="bg-orange px-4 py-10 text-center">
+    <section appReveal class="bg-orange px-4 py-10 text-center">
       <div class="mx-auto max-w-2xl">
         <span class="etiquette bg-brun text-creme">Événements</span>
         <h2 class="mt-3 font-titre text-2xl md:text-3xl">Le camion chez vous</h2>

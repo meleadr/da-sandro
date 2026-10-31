@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs';
+import { renameSync, rmSync, writeFileSync } from 'node:fs';
 import { business } from '../src/data/business.ts';
 import { menu } from '../src/data/menu.ts';
 import { places } from '../src/data/places.ts';
@@ -28,6 +28,10 @@ const headers = [
   ...(publishable ? [] : ['', '/*', '  X-Robots-Tag: noindex']),
   '',
 ].join('\n');
+
+// Cloudflare Pages answers with a real 404 status as soon as this file exists.
+renameSync(`${OUTPUT}/404/index.html`, `${OUTPUT}/404.html`);
+rmSync(`${OUTPUT}/404`, { recursive: true });
 
 writeFileSync(`${OUTPUT}/sitemap.xml`, sitemap);
 writeFileSync(`${OUTPUT}/robots.txt`, robots);

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <svg
       viewBox="0 0 120 120"
-      class="size-full drop-shadow-[4px_5px_0_rgb(58_36_19_/_0.55)]"
+      class="size-full origin-[50%_90%] animate-balance drop-shadow-[4px_5px_0_rgb(58_36_19_/_0.55)] motion-reduce:animate-none"
       aria-hidden="true"
       focusable="false"
     >

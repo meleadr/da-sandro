@@ -1,21 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faFacebook, faInstagram, faTiktok, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
-import type { SocialLink } from '../../data/types';
 import { Seo } from '../seo/seo';
-
-const SOCIAL_ICONS: Record<SocialLink['network'], IconDefinition> = {
-  facebook: faFacebook,
-  instagram: faInstagram,
-  tiktok: faTiktok,
-};
+import { SocialLinks } from '../shared/social-links';
 
 @Component({
   selector: 'app-contact-page',
-  imports: [RouterLink, FaIconComponent],
+  imports: [RouterLink, FaIconComponent, SocialLinks],
   template: `
     <section class="mx-auto max-w-xl px-4 pt-6 pb-12 text-center">
       <span class="etiquette">Une question ?</span>
@@ -34,11 +27,8 @@ const SOCIAL_ICONS: Record<SocialLink['network'], IconDefinition> = {
             {{ business.email }}
           </a>
         }
-        @for (link of business.socialLinks; track link.url) {
-          <a [href]="link.url" class="btn btn-contour capitalize" rel="noopener" target="_blank">
-            <fa-icon [icon]="icon(link)" aria-hidden="true" />
-            {{ link.network }}
-          </a>
+        @if (business.socialLinks.length > 0) {
+          <app-social-links class="justify-center" [links]="business.socialLinks" />
         }
         <a routerLink="/evenements" class="btn btn-brun">Organiser un événement</a>
       </div>
@@ -57,9 +47,5 @@ export class ContactPage {
         'Contactez Da Sandro, pizzeria food truck en région liégeoise, par téléphone ou par e-mail.',
       path: '/contact/',
     });
-  }
-
-  protected icon(link: SocialLink): IconDefinition {
-    return SOCIAL_ICONS[link.network];
   }
 }

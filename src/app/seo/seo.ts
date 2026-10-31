@@ -8,6 +8,8 @@ export interface PageSeo {
   /** With a trailing slash, as served in production. */
   readonly path: string;
   readonly structuredData?: Record<string, unknown> | null;
+  /** For pages that must stay out of search results. */
+  readonly noindex?: boolean;
 }
 
 /** Sets the head of a page. It runs during prerendering, so the tags are in the static HTML. */
@@ -35,6 +37,12 @@ export class Seo {
       this.meta.updateTag({ property, content });
     }
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+
+    if (page.noindex) {
+      this.meta.updateTag({ name: 'robots', content: 'noindex' });
+    } else {
+      this.meta.removeTag('name="robots"');
+    }
 
     this.setCanonical(url);
     this.setStructuredData(page.structuredData ?? null);

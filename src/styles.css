@@ -30,10 +30,22 @@
   --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
 
   --animate-defile: defile 30s linear infinite;
+  --animate-balance: balance 4s ease-in-out infinite;
 
   @keyframes defile {
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes balance {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+
+    50% {
+      transform: rotate(3deg);
     }
   }
 }
@@ -137,6 +149,19 @@
     font-size: 0.75rem;
     font-weight: 900;
     text-transform: uppercase;
+  }
+
+  .reveal-attente {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  .reveal-attente.reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
   }
 
   .btn:disabled {

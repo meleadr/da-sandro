@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { EventForm } from '../events/event-form';
 import { Seo } from '../seo/seo';
+import { Reveal } from '../shared/reveal';
 
 @Component({
   selector: 'app-events-page',
-  imports: [EventForm],
+  imports: [EventForm, Reveal],
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
       <span class="etiquette">Événements</span>
@@ -15,7 +16,7 @@ import { Seo } from '../seo/seo';
       </p>
     </section>
 
-    <section class="bg-orange px-4 py-10">
+    <section appReveal class="bg-orange px-4 py-10">
       <div class="mx-auto max-w-2xl">
         <h2 class="mb-6 text-center font-titre text-2xl">Demander un devis</h2>
         <app-event-form />
