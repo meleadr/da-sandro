@@ -108,7 +108,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
           <button type="submit" class="btn btn-brown w-full" [disabled]="status() === 'sending'">
             {{ status() === 'sending' ? 'Envoi…' : 'Demander un devis' }}
           </button>
-          <p class="mt-3 text-center text-xs font-semibold">
+          <p class="mt-3 text-center text-sm font-semibold">
             Votre devis vous est envoyé par e-mail. Vos données servent uniquement à répondre à votre demande.
           </p>
         </div>

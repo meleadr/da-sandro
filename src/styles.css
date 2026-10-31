@@ -170,6 +170,14 @@
     animation: tag-stamp 380ms cubic-bezier(0.2, 1.4, 0.4, 1) 120ms both;
   }
 
+  /* A sheet laid on the cardboard: long text is much easier to read on cream. */
+  .paper {
+    border-radius: 0.75rem;
+    background-color: var(--color-cream);
+    box-shadow: 4px 5px 0 rgb(58 36 19 / 0.55);
+    padding: 0.5rem 1.25rem;
+  }
+
   .mascot {
     transform-origin: 50% 90%;
     animation: mascot-pop 550ms cubic-bezier(0.2, 1.5, 0.4, 1) both;
