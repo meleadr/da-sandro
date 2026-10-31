@@ -31,7 +31,7 @@ import { Seo } from '../seo/seo';
 
       <h2 class="mt-8 font-display text-xl">Vie privée</h2>
       <p class="mt-2">
-        Les données envoyées via le formulaire d'événement servent uniquement à répondre à votre
+        Les données envoyées via les formulaires du site servent uniquement à répondre à votre
         demande. Elles ne sont ni vendues ni transmises à des fins commerciales.
       </p>
       <p class="mt-2">

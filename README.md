@@ -16,7 +16,7 @@ What remains to be done before launch is listed in [TODO.md](TODO.md).
 - [Tailwind CSS](https://tailwindcss.com) 4
 - [Font Awesome](https://fontawesome.com) SVG icons, imported one by one
 - [Vitest](https://vitest.dev) for tests
-- [Cloudflare Pages](https://pages.cloudflare.com) for hosting, with a Pages Function for the form
+- [Cloudflare Pages](https://pages.cloudflare.com) for hosting, with Pages Functions for the forms
 - [Resend](https://resend.com) to send emails
 
 ## Getting started
@@ -47,17 +47,18 @@ The site is then available at http://localhost:4200.
 ## Structure
 
 ```text
-functions/api/event-request.ts   Pages Function behind the form
+functions/api/                   Pages Functions behind the forms
 public/                          Fonts, favicon, share image
 scripts/                         Content check and SEO files
 src/data/                        All the site content
 src/app/
-  events/                        Event form and request handling
+  contact/                       Contact form
+  events/                        Event form
   layout/                        Header, footer, navigation
   pages/                         One component per route
   schedule/                      Next service calculation and weekly schedule
   seo/                           Meta tags and structured data
-  shared/                        Reusable components
+  shared/                        Reusable components and form submission
 ```
 
 Code, comments and documentation are in English. Only visitor-facing text and page URLs are in
@@ -128,13 +129,14 @@ same description, because Google penalizes pages created only to target a town.
 
 Lighthouse targets on mobile: 100 for SEO, at least 95 for performance and accessibility.
 
-## Event form
+## Forms
 
-The browser sends the request to `/api/event-request`. The Pages Function validates it with the
-same rules as the browser (`src/app/events/event-request.ts`), then sends the email through Resend.
-Replies go straight to the customer thanks to `reply_to`.
+The site has two forms: the event request (`/api/event-request`) and the contact form
+(`/api/contact`). Each Pages Function validates the data with the same rules as the browser, then
+`src/app/shared/form-submission.ts` sends the email through Resend. Replies go straight to the
+customer thanks to `reply_to`.
 
-`ng serve` does not run this function, so the form always shows a failure on
+`ng serve` does not run these functions, so the forms always show a failure on
 http://localhost:4200. To test it locally, create a `.dev.vars` file, which Git ignores:
 
 ```ini

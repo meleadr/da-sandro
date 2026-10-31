@@ -45,7 +45,7 @@ rmSync(`${OUTPUT}/404`, { recursive: true });
 writeFileSync(`${OUTPUT}/sitemap.xml`, sitemap);
 writeFileSync(`${OUTPUT}/robots.txt`, robots);
 writeFileSync(`${OUTPUT}/_headers`, headers);
-// Only the form runs as a Function: everything else is served as static files.
+// Only the forms run as Functions: everything else is served as static files.
 writeFileSync(
   `${OUTPUT}/_routes.json`,
   JSON.stringify({ version: 1, include: ['/api/*'], exclude: [] }),

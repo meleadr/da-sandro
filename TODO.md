@@ -39,7 +39,7 @@
 
 ## Checks after deployment
 
-- [ ] Send a real request through the form and receive the email
+- [ ] Send a real request through both forms and receive the emails
 - [ ] Reply to that email: the reply must go to the customer
 - [ ] Try the mobile menu on a real phone
 - [ ] Try "Appeler", "Y aller" and "Afficher la carte" with real data
@@ -50,5 +50,5 @@
 
 ## Later
 
-- [ ] Add Cloudflare Turnstile if the form receives spam
+- [ ] Add Cloudflare Turnstile if the forms receive spam
 - [ ] Study online ordering: it would need a real server or a dedicated service

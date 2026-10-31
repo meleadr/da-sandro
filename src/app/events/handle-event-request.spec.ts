@@ -1,6 +1,7 @@
 import { vi } from 'vitest';
+import type { MailEnv } from '../shared/form-submission';
 import { parseEventRequest } from './event-request';
-import { handleEventRequest, MailEnv } from './handle-event-request';
+import { handleEventRequest } from './handle-event-request';
 
 const TODAY = '2026-11-01';
 const ENV: MailEnv = {
