@@ -9,6 +9,7 @@ import { WeeklySchedule } from '../schedule/weekly-schedule';
 import { Seo } from '../seo/seo';
 import { buildPlaceSchema } from '../seo/structured-data';
 import { MapEmbed } from '../shared/map-embed';
+import { fullAddress, mapQuery } from '../shared/place-address';
 import { Reveal } from '../shared/reveal';
 
 @Component({
@@ -20,11 +21,7 @@ import { Reveal } from '../shared/reveal';
         <span class="tag">Food truck pizza</span>
         <h1 class="title-sticker mt-4 text-4xl md:text-6xl">{{ place.name }}</h1>
         <p class="mt-4 font-bold">
-          @if (place.address) {
-            {{ place.address }}, {{ place.postalCode }} {{ place.city }}
-          } @else {
-            Adresse exacte bientôt disponible
-          }
+          {{ address() ?? 'Adresse exacte bientôt disponible' }}
         </p>
         @if (place.description) {
           <p class="mt-3">{{ place.description }}</p>
@@ -44,11 +41,9 @@ import { Reveal } from '../shared/reveal';
         </div>
       </section>
 
-      @if (query(); as mapQuery) {
-        <section class="mx-auto max-w-2xl px-4 py-10">
-          <app-map-embed [query]="mapQuery" [label]="place.name" />
-        </section>
-      }
+      <section class="mx-auto max-w-2xl px-4 pt-10">
+        <app-map-embed [label]="place.name" [query]="query()" />
+      </section>
 
       <p class="py-10 text-center">
         <a routerLink="/carte" class="btn btn-brown">Voir la carte</a>
@@ -64,15 +59,20 @@ export class PlacePage {
 
   protected readonly place = computed(() => places.find(({ slug }) => slug === this.slug()));
 
+  protected readonly address = computed(() => {
+    const place = this.place();
+    return place ? fullAddress(place) : null;
+  });
+
   protected readonly query = computed(() => {
     const place = this.place();
-    return place?.address ? `${place.address}, ${place.postalCode} ${place.city}` : null;
+    return place ? mapQuery(place) : '';
   });
 
   protected readonly directionsUrl = computed(() => {
-    const query = this.query();
-    return query
-      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`
+    const address = this.address();
+    return address
+      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`
       : null;
   });
 

@@ -42,8 +42,8 @@ import { Seo } from '../seo/seo';
           suivi individuel des visiteurs.
         </p>
         <p class="mt-2">
-          La carte Google Maps des pages de lieu ne se charge que si vous cliquez sur « Afficher la
-          carte ». Google peut alors déposer ses propres cookies.
+          La carte Google Maps des pages d'emplacements ne se charge que si vous cliquez sur « Afficher
+          la carte ». Google peut alors déposer ses propres cookies.
         </p>
       </div>
     </section>
