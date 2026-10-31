@@ -24,7 +24,7 @@ export const menu: Menu = {
         },
         {
           name: 'Regina',
-          ingredients: ['sauce tomate', 'mozzarella fior di latte', 'jambon cuit', 'champignon frais'],
+          ingredients: ['sauce tomate', 'mozzarella fior di latte', 'jambon cuit', 'champignons frais'],
           priceCents: 900,
         },
         {
