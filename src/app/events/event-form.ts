@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
 import { EVENT_TYPES, EventRequest, EventRequestErrors, parseEventRequest } from './event-request';
 
@@ -16,7 +18,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
 
 @Component({
   selector: 'app-event-form',
-  imports: [ReactiveFormsModule],
+  imports: [FaIconComponent, ReactiveFormsModule],
   host: { class: 'block' },
   template: `
     @if (status() === 'sent') {
@@ -106,6 +108,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
             </p>
           }
           <button type="submit" class="btn btn-brown w-full" [disabled]="status() === 'sending'">
+            <fa-icon [icon]="sendIcon" aria-hidden="true" />
             {{ status() === 'sending' ? 'Envoi…' : 'Demander un devis' }}
           </button>
           <p class="mt-3 text-center text-sm font-semibold">
@@ -122,6 +125,7 @@ export class EventForm {
 
   protected readonly eventTypes = EVENT_TYPES;
   protected readonly phone = business.phone;
+  protected readonly sendIcon = faPaperPlane;
   protected readonly status = signal<Status>('idle');
 
   protected readonly form = inject(NonNullableFormBuilder).group({
