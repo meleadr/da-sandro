@@ -1,3 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+@font-face {
+  font-family: 'Chango';
+  src: url('/fonts/chango.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo Variable';
+  src: url('/fonts/archivo-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-carton: #c99a63;
+  --color-brun: #3a2413;
+  --color-brun-clair: #4a3020;
+  --color-creme: #f9e7be;
+  --color-orange: #f07c12;
+  --color-jaune: #f9c22e;
+  --color-vert: #8be39a;
+  --color-champ: #fff3dd;
+
+  --font-titre: 'Chango', ui-serif, Georgia, serif;
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-defile: defile 30s linear infinite;
+
+  @keyframes defile {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-carton);
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgb(90 55 20 / 0.07) 0 2px,
+      transparent 2px 7px
+    );
+    color: var(--color-brun);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brun);
+    outline-offset: 2px;
+  }
+
+  .bg-brun :focus-visible {
+    outline-color: var(--color-jaune);
+  }
+}
+
+@layer components {
+  /* Le crème seul sur le carton est trop peu contrasté : le contour brun assure la lisibilité. */
+  .titre-sticker {
+    color: var(--color-creme);
+    font-family: var(--font-titre);
+    line-height: 1;
+    paint-order: stroke fill;
+    -webkit-text-stroke: 0.14em var(--color-brun);
+    text-shadow: 0.06em 0.07em 0 var(--color-brun);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+    transition:
+      transform 120ms ease,
+      box-shadow 120ms ease,
+      background-color 120ms ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-sm {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.6875rem;
+  }
+
+  .btn-brun {
+    background-color: var(--color-brun);
+    color: var(--color-creme);
+  }
+
+  .btn-orange {
+    background-color: var(--color-orange);
+    box-shadow: 0 3px 0 var(--color-brun);
+    color: var(--color-brun);
+  }
+
+  .btn-contour {
+    border: 2px solid currentColor;
+  }
+
+  .etiquette {
+    display: inline-block;
+    transform: rotate(-2deg);
+    border-radius: 0.5rem;
+    background-color: var(--color-orange);
+    padding: 0.3rem 0.7rem;
+    color: var(--color-brun);
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+
+    .btn:hover,
+    .btn:active {
+      transform: none;
+    }
+  }
+}
