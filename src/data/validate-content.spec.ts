@@ -35,9 +35,10 @@ const publishable: SiteContent = {
     categories: [
       {
         name: 'Classiques',
-        pizzas: [{ name: 'Margherita', ingredients: ['tomate'], priceCents: 1000 }],
+        items: [{ name: 'Margherita', ingredients: ['tomate'], priceCents: 1000 }],
       },
     ],
+    note: '',
   },
 };
 
@@ -62,7 +63,7 @@ describe('content validation', () => {
       menu: {
         ...publishable.menu,
         categories: [
-          { name: 'Classiques', pizzas: [{ name: 'Regina', ingredients: [], priceCents: null }] },
+          { name: 'Classiques', items: [{ name: 'Regina', ingredients: [], priceCents: null }] },
         ],
       },
     };

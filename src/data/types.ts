@@ -66,8 +66,9 @@ export interface Schedule extends Draftable {
   readonly exceptions: readonly ScheduleException[];
 }
 
-export interface Pizza {
+export interface MenuItem {
   readonly name: string;
+  /** Empty for drinks. */
   readonly ingredients: readonly string[];
   /** Euro cents. Null until the real price is known. */
   readonly priceCents: number | null;
@@ -75,11 +76,12 @@ export interface Pizza {
 
 export interface MenuCategory {
   readonly name: string;
-  readonly pizzas: readonly Pizza[];
+  readonly items: readonly MenuItem[];
 }
 
 export interface Menu extends Draftable {
   readonly categories: readonly MenuCategory[];
+  readonly note: string;
 }
 
 export interface SiteContent {

@@ -67,9 +67,9 @@ export function findStructureErrors(content: SiteContent): string[] {
   });
 
   for (const category of content.menu.categories) {
-    for (const pizza of category.pizzas) {
-      if (pizza.priceCents !== null && (!Number.isInteger(pizza.priceCents) || pizza.priceCents <= 0)) {
-        errors.push(`menu: invalid price for "${pizza.name}"`);
+    for (const item of category.items) {
+      if (item.priceCents !== null && (!Number.isInteger(item.priceCents) || item.priceCents <= 0)) {
+        errors.push(`menu: invalid price for "${item.name}"`);
       }
     }
   }
@@ -121,10 +121,10 @@ export function findPublishErrors(content: SiteContent): string[] {
 
   if (schedule.weekly.length === 0) errors.push('schedule: no weekly service');
 
-  const pizzas = menu.categories.flatMap((category) => category.pizzas);
-  if (pizzas.length === 0) errors.push('menu: no pizza');
-  for (const pizza of pizzas) {
-    if (pizza.priceCents === null) errors.push(`menu: missing price for "${pizza.name}"`);
+  const items = menu.categories.flatMap((category) => category.items);
+  if (items.length === 0) errors.push('menu: no item');
+  for (const item of items) {
+    if (item.priceCents === null) errors.push(`menu: missing price for "${item.name}"`);
   }
 
   return errors;
