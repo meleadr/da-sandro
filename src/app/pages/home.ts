@@ -38,10 +38,12 @@ const PREVIEW_SIZE = 3;
     >
       <div>
         <app-mascot class="mx-auto mb-3 size-28 md:mx-0 md:size-40" />
-        <h1 class="title-sticker text-[2.6rem] md:text-7xl">Da Sandro</h1>
-        <p class="mt-4 text-sm font-extrabold uppercase md:text-base">
-          Pizzeria food truck à Liège et Grâce-Hollogne
-        </p>
+        <h1>
+          <span class="title-sticker block text-[2.6rem] md:text-7xl">Da Sandro</span>
+          <span class="mt-4 block text-sm font-extrabold uppercase md:text-base">
+            Pizzeria food truck à Liège et Grâce-Hollogne
+          </span>
+        </h1>
       </div>
 
       <div class="grid gap-2.5">
@@ -50,16 +52,22 @@ const PREVIEW_SIZE = 3;
           <fa-icon [icon]="locationIcon" aria-hidden="true" />
           Voir les emplacements
         </a>
-        <a routerLink="/carte" class="btn btn-outline">
-          <fa-icon [icon]="pizzaIcon" aria-hidden="true" />
-          Voir la carte
+        <a routerLink="/evenements" class="btn btn-brown">
+          <fa-icon [icon]="truckIcon" aria-hidden="true" />
+          Réserver pour un event
         </a>
-        @if (phone) {
-          <a [href]="'tel:' + phone" class="btn btn-outline">
-            <fa-icon [icon]="phoneIcon" aria-hidden="true" />
-            Appeler
+        <div class="grid grid-cols-2 gap-2.5">
+          <a routerLink="/carte" class="btn btn-outline" [class.col-span-2]="!phone">
+            <fa-icon [icon]="pizzaIcon" aria-hidden="true" />
+            La carte
           </a>
-        }
+          @if (phone) {
+            <a [href]="'tel:' + phone" class="btn btn-outline">
+              <fa-icon [icon]="phoneIcon" aria-hidden="true" />
+              Appeler
+            </a>
+          }
+        </div>
       </div>
     </section>
 
