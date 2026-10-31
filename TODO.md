@@ -30,7 +30,8 @@
 ## Launch
 
 - [ ] Register `da-sandro.be`, or update `siteUrl` if another domain is chosen
-- [ ] Create the Cloudflare Pages project with the `npm run build:prod` command
+- [ ] Create the Cloudflare Pages project with `npm run build` for the non-indexed preview
+- [ ] Switch the Cloudflare build command to `npm run build:prod` before launch
 - [ ] Create the Resend account and verify the sending domain
 - [ ] Set `RESEND_API_KEY`, `MAIL_FROM` and `MAIL_TO` in Cloudflare
 - [ ] Enable Cloudflare Web Analytics
