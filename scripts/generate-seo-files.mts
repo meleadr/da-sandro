@@ -27,6 +27,15 @@ const headers = [
   '  X-Robots-Tag: noindex',
   ...(publishable ? [] : ['', '/*', '  X-Robots-Tag: noindex']),
   '',
+  // Build files have a content hash in their name, so they can be cached for good.
+  ...['/main-*', '/styles-*', '/chunk-*'].flatMap((path) => [
+    path,
+    '  Cache-Control: public, max-age=31536000, immutable',
+    '',
+  ]),
+  '/fonts/*',
+  '  Cache-Control: public, max-age=2592000',
+  '',
 ].join('\n');
 
 // Cloudflare Pages answers with a real 404 status as soon as this file exists.
@@ -36,5 +45,10 @@ rmSync(`${OUTPUT}/404`, { recursive: true });
 writeFileSync(`${OUTPUT}/sitemap.xml`, sitemap);
 writeFileSync(`${OUTPUT}/robots.txt`, robots);
 writeFileSync(`${OUTPUT}/_headers`, headers);
+// Only the form runs as a Function: everything else is served as static files.
+writeFileSync(
+  `${OUTPUT}/_routes.json`,
+  JSON.stringify({ version: 1, include: ['/api/*'], exclude: [] }),
+);
 
 console.log(`SEO files written (${publishable ? 'indexable' : 'not indexable yet'}).`);
