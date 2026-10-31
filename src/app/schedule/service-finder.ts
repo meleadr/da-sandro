@@ -40,7 +40,7 @@ function addDays(date: string, days: number): string {
   return new Date(base + days * MS_PER_DAY).toISOString().slice(0, 10);
 }
 
-function isoWeekday(date: string): Weekday {
+export function isoWeekday(date: string): Weekday {
   const day = new Date(`${date}T00:00:00Z`).getUTCDay();
   return (day === 0 ? 7 : day) as Weekday;
 }
