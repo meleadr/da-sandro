@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { NAV_LINKS } from './nav-links';
 
-const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: '' };
+const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: 'https://www.linkedin.com/in/adrianomeledina/' };
 
 @Component({
   selector: 'app-site-footer',
-  imports: [RouterLink],
+  imports: [RouterLink, FaIconComponent],
   host: { class: 'block bg-brun text-creme' },
   template: `
     <footer class="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2 md:items-end">
@@ -30,12 +32,14 @@ const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: '' };
         © {{ year }}
         @if (author.linkedinUrl) {
           <a
-            class="underline underline-offset-2"
+            class="inline-flex items-center gap-1.5 underline-offset-2 hover:underline"
             rel="noopener"
             target="_blank"
             [href]="author.linkedinUrl"
           >
             {{ author.name }}
+            <fa-icon class="text-sm" [icon]="linkedinIcon" aria-hidden="true" />
+            <span class="sr-only">(LinkedIn)</span>
           </a>
         } @else {
           {{ author.name }}
@@ -46,6 +50,7 @@ const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: '' };
 })
 export class SiteFooter {
   protected readonly author = AUTHOR;
+  protected readonly linkedinIcon = faLinkedin;
   protected readonly links = NAV_LINKS;
   protected readonly year = new Date().getFullYear();
 }
