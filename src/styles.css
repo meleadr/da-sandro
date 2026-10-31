@@ -139,6 +139,38 @@
     text-transform: uppercase;
   }
 
+  .btn:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+  }
+
+  .champ-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .champ {
+    width: 100%;
+    border: 2px solid var(--color-brun);
+    border-radius: 0.5rem;
+    background-color: var(--color-champ);
+    padding: 0.6rem 0.75rem;
+    color: var(--color-brun);
+  }
+
+  .champ[aria-invalid='true'] {
+    border-width: 3px;
+  }
+
+  .champ-erreur {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 800;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .btn {
       transition: none;

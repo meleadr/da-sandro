@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NAV_LINKS } from './nav-links';
 
+const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: '' };
+
 @Component({
   selector: 'app-site-footer',
   imports: [RouterLink],
@@ -24,9 +26,26 @@ import { NAV_LINKS } from './nav-links';
           Mentions légales
         </a>
       </nav>
+      <p class="text-center text-xs md:col-span-2">
+        © {{ year }}
+        @if (author.linkedinUrl) {
+          <a
+            class="underline underline-offset-2"
+            rel="noopener"
+            target="_blank"
+            [href]="author.linkedinUrl"
+          >
+            {{ author.name }}
+          </a>
+        } @else {
+          {{ author.name }}
+        }
+      </p>
     </footer>
   `,
 })
 export class SiteFooter {
+  protected readonly author = AUTHOR;
   protected readonly links = NAV_LINKS;
+  protected readonly year = new Date().getFullYear();
 }
