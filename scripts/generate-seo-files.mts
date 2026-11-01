@@ -1,4 +1,4 @@
-import { renameSync, rmSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { business } from '../src/data/business.ts';
 import { menu } from '../src/data/menu.ts';
 import { places } from '../src/data/places.ts';
@@ -41,6 +41,15 @@ const headers = [
 // Cloudflare Pages answers with a real 404 status as soon as this file exists.
 renameSync(`${OUTPUT}/404/index.html`, `${OUTPUT}/404.html`);
 rmSync(`${OUTPUT}/404`, { recursive: true });
+
+// Cloudflare turns preload tags into Link headers, which ignore <base>: relative chunk URLs
+// would then resolve against the page and return 404 on every nested route.
+for (const file of readdirSync(OUTPUT, { recursive: true, encoding: 'utf8' })) {
+  if (file.endsWith('.html')) {
+    const html = readFileSync(`${OUTPUT}/${file}`, 'utf8');
+    writeFileSync(`${OUTPUT}/${file}`, html.replace(/href="chunk-/g, 'href="/chunk-'));
+  }
+}
 
 writeFileSync(`${OUTPUT}/sitemap.xml`, sitemap);
 writeFileSync(`${OUTPUT}/robots.txt`, robots);
