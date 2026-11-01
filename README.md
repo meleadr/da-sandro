@@ -42,7 +42,7 @@ The site is then available at http://localhost:4200.
 | `npm run build:prod` | Checks the content, then builds. This is the production command |
 
 `npm run build` also runs `scripts/generate-seo-files.mts`, which writes `sitemap.xml`,
-`robots.txt`, `_headers`, `_routes.json` and `404.html`.
+`robots.txt`, `_headers` (including the security headers), `_routes.json` and `404.html`.
 
 ## Structure
 
@@ -135,6 +135,8 @@ The site has two forms: the event request (`/api/event-request`) and the contact
 (`/api/contact`). Each Pages Function validates the data with the same rules as the browser, then
 `src/app/shared/form-submission.ts` sends the email through Resend. Replies go straight to the
 customer thanks to `reply_to`.
+
+Each function refuses requests that do not come from the site itself (`isSameOrigin`).
 
 `ng serve` does not run these functions, so the forms always show a failure on
 http://localhost:4200. To test it locally, create a `.dev.vars` file, which Git ignores:

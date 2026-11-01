@@ -7,6 +7,10 @@ import { NAV_LINKS } from './nav-links';
 @Component({
   selector: 'app-site-header',
   imports: [RouterLink, RouterLinkActive, FaIconComponent],
+  host: {
+    '(document:keydown.escape)': 'closeMenu()',
+    '(document:click)': 'closeOnOutsideClick($event)',
+  },
   template: `
     <header class="relative mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
       <a routerLink="/" class="font-display text-lg text-brown">Da Sandro</a>
@@ -60,5 +64,11 @@ export class SiteHeader {
 
   protected closeMenu(): void {
     this.menu().nativeElement.open = false;
+  }
+
+  protected closeOnOutsideClick(event: MouseEvent): void {
+    if (!this.menu().nativeElement.contains(event.target as Node)) {
+      this.closeMenu();
+    }
   }
 }

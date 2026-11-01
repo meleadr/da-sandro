@@ -22,6 +22,19 @@ export interface FormMail {
 const MAX_BODY_LENGTH = 10_000;
 const RESEND_URL = 'https://api.resend.com/emails';
 
+/** Browsers always send Origin on a POST, so this only lets the site's own pages through. */
+export function isSameOrigin(request: Request): boolean {
+  const origin = request.headers.get('Origin');
+  if (!origin) {
+    return false;
+  }
+  try {
+    return new URL(origin).host === new URL(request.url).host;
+  } catch {
+    return false;
+  }
+}
+
 /** Server side of the site forms. It runs in a Cloudflare Pages Function. */
 export async function handleFormSubmission<T>(
   rawBody: string,

@@ -8,6 +8,22 @@ import { findPublishErrors } from '../src/data/validate-content.ts';
 const OUTPUT = 'dist/da-sandro/browser';
 const STATIC_PATHS = ['/', '/carte/', '/emplacements/', '/evenements/', '/contact/', '/mentions-legales/'];
 
+// Angular's prerendered pages need inline scripts and styles. Google is only used by the map,
+// and Cloudflare Insights by Web Analytics.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self' https://cloudflareinsights.com",
+  'frame-src https://www.google.com',
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ');
+
 const publishable = findPublishErrors({ business, places, schedule, menu }).length === 0;
 const paths = [...STATIC_PATHS, ...places.map(({ slug }) => `/emplacements/${slug}/`)];
 
@@ -27,6 +43,12 @@ const headers = [
   '  X-Robots-Tag: noindex',
   ...(publishable ? [] : ['', '/*', '  X-Robots-Tag: noindex']),
   '',
+  '/*',
+  '  X-Frame-Options: DENY',
+  '  Strict-Transport-Security: max-age=31536000',
+  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  `  Content-Security-Policy: ${CONTENT_SECURITY_POLICY}`,
+  '',
   // Build files have a content hash in their name, so they can be cached for good.
   ...['/main-*', '/styles-*', '/chunk-*'].flatMap((path) => [
     path,
@@ -41,6 +63,8 @@ const headers = [
 // Cloudflare Pages answers with a real 404 status as soon as this file exists.
 renameSync(`${OUTPUT}/404/index.html`, `${OUTPUT}/404.html`);
 rmSync(`${OUTPUT}/404`, { recursive: true });
+// The empty client-side shell is not used by static output and must not be served.
+rmSync(`${OUTPUT}/index.csr.html`, { force: true });
 
 // Cloudflare turns preload tags into Link headers, which ignore <base>: relative chunk URLs
 // would then resolve against the page and return 404 on every nested route.

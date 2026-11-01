@@ -30,12 +30,27 @@ import { Seo } from '../seo/seo';
         }
 
         <h2 class="mt-8 font-display text-xl">Hébergement</h2>
-        <p class="mt-2">Le site est hébergé par Cloudflare, Inc.</p>
+        <p class="mt-2">
+          Le site est hébergé par Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107,
+          États-Unis.
+        </p>
 
         <h2 class="mt-8 font-display text-xl">Vie privée</h2>
         <p class="mt-2">
-          Les données envoyées via les formulaires du site servent uniquement à répondre à votre
-          demande. Elles ne sont ni vendues ni transmises à des fins commerciales.
+          Le responsable du traitement est {{ business.legalName }}. Les données envoyées via les
+          formulaires du site (nom, e-mail, téléphone, détails de votre demande) servent uniquement
+          à répondre à votre demande. Elles ne sont ni vendues ni transmises à des fins
+          commerciales.
+        </p>
+        <p class="mt-2">
+          Les messages transitent par Cloudflare et Resend, qui assurent l'hébergement et l'envoi des
+          e-mails, et sont reçus sur une boîte Gmail. Ils sont conservés 12 mois après le dernier
+          échange, puis supprimés, sauf obligation légale.
+        </p>
+        <p class="mt-2">
+          Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression en
+          écrivant à {{ business.email }}. Vous pouvez aussi introduire une réclamation auprès de
+          l'Autorité de protection des données.
         </p>
         <p class="mt-2">
           La fréquentation du site est mesurée avec Cloudflare Web Analytics, sans cookies et sans

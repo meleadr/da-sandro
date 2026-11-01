@@ -7,8 +7,8 @@
 - [ ] Real schedule in `src/data/schedule.ts`, then `provisional: false`
 - [ ] Real truck stops in `src/data/places.ts`. Grâce-Hollogne and Liège are examples
 - [ ] For each stop: exact address and one or two sentences specific to the place
-- [ ] Real Facebook and Instagram pages in `src/data/business.ts`. The current links are
-      placeholders, and `build:prod` refuses them
+- [ ] Real Instagram page in `src/data/business.ts`. The current link is a placeholder, and
+      `build:prod` refuses it
 
 ## To confirm with Sandro
 
@@ -20,6 +20,11 @@
 - [ ] Facts for the event offer: packages, minimum guests, duration, what is included. The
       `/evenements/` page stays general until then
 - [ ] Rights to the truck illustration in the PDF menu, before using it on the site
+
+- [ ] Allergen list available at the truck, as announced on the menu page
+- [ ] Prices include VAT, as announced on the menu page
+- [ ] Rules for selling beer, including any age notice
+- [ ] 12-month retention period announced in the legal notice
 
 ## Visuals
 
@@ -35,6 +40,7 @@
 - [ ] Create the Resend account and verify the sending domain
 - [ ] Set `RESEND_API_KEY`, `MAIL_FROM` and `MAIL_TO` in Cloudflare
 - [ ] Enable Cloudflare Web Analytics
+- [ ] Add a Cloudflare rate limiting rule on `/api/*`
 - [x] Create the Google Business Profile as a service area, with no displayed address
 - [ ] Verify the Google Business Profile, then add the website, opening hours and photos
 - [ ] Add the site and the sitemap to Google Search Console

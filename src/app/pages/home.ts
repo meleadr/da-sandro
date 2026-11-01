@@ -54,7 +54,7 @@ const PREVIEW_SIZE = 3;
         </a>
         <a routerLink="/evenements" class="btn btn-brown">
           <fa-icon [icon]="truckIcon" aria-hidden="true" />
-          Réserver pour un event
+          Réserver pour un événement
         </a>
         <div class="grid grid-cols-2 gap-2.5">
           <a routerLink="/carte" class="btn btn-outline" [class.col-span-2]="!phone">

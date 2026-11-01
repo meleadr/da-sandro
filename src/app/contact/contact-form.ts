@@ -12,6 +12,7 @@ import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
+import { formatPhone } from '../shared/format-phone';
 import { ContactRequest, ContactRequestErrors, parseContactRequest } from './contact-request';
 
 type Status = 'idle' | 'sending' | 'sent' | 'failed';
@@ -30,25 +31,25 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
       <form class="grid gap-4 text-left sm:grid-cols-2" [formGroup]="form" (ngSubmit)="submit()" novalidate>
         <div>
           <label class="field-label" for="name">Votre nom *</label>
-          <input id="name" class="field" type="text" autocomplete="name" formControlName="name" [attr.aria-invalid]="invalid('name')" />
+          <input id="name" class="field" type="text" autocomplete="name" formControlName="name" [attr.aria-invalid]="invalid('name')" [attr.aria-describedby]="error('name') ? 'name-error' : null" aria-required="true" />
           @if (error('name'); as message) {
-            <p class="field-error">{{ message }}</p>
+            <p id="name-error" class="field-error">{{ message }}</p>
           }
         </div>
 
         <div>
           <label class="field-label" for="email">Votre e-mail *</label>
-          <input id="email" class="field" type="email" autocomplete="email" formControlName="email" [attr.aria-invalid]="invalid('email')" />
+          <input id="email" class="field" type="email" autocomplete="email" formControlName="email" [attr.aria-invalid]="invalid('email')" [attr.aria-describedby]="error('email') ? 'email-error' : null" aria-required="true" />
           @if (error('email'); as message) {
-            <p class="field-error">{{ message }}</p>
+            <p id="email-error" class="field-error">{{ message }}</p>
           }
         </div>
 
         <div class="sm:col-span-2">
           <label class="field-label" for="message">Votre message *</label>
-          <textarea id="message" class="field" rows="5" formControlName="message" [attr.aria-invalid]="invalid('message')"></textarea>
+          <textarea id="message" class="field" rows="5" formControlName="message" [attr.aria-invalid]="invalid('message')" [attr.aria-describedby]="error('message') ? 'message-error' : null" aria-required="true"></textarea>
           @if (error('message'); as message) {
-            <p class="field-error">{{ message }}</p>
+            <p id="message-error" class="field-error">{{ message }}</p>
           }
         </div>
 
@@ -62,7 +63,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
           @if (status() === 'failed') {
             <p class="mb-3 rounded-lg bg-brown p-3 text-center text-sm text-cream" role="alert">
               L'envoi a échoué, mais votre message est conservé ci-dessus. Réessayez, ou appelez-nous
-              au <a class="font-bold underline" [href]="'tel:' + phone">{{ phone }}</a>.
+              au <a class="font-bold underline" [href]="'tel:' + phone">{{ phoneLabel }}</a>.
             </p>
           }
           <button type="submit" class="btn btn-brown w-full" [disabled]="status() === 'sending'">
@@ -82,6 +83,7 @@ export class ContactForm {
   private readonly injector = inject(Injector);
 
   protected readonly phone = business.phone;
+  protected readonly phoneLabel = formatPhone(business.phone);
   protected readonly sendIcon = faPaperPlane;
   protected readonly status = signal<Status>('idle');
 

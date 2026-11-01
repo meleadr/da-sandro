@@ -22,6 +22,10 @@ import { Reveal } from '../shared/reveal';
       }
 
       <p class="mt-8 font-semibold">{{ menu.note }}</p>
+      <p class="mt-3 text-sm font-semibold">
+        Prix TVA comprise. Allergies ou intolérances ? La liste des allergènes est disponible sur
+        simple demande au camion.
+      </p>
     </section>
   `,
 })
