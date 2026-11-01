@@ -48,6 +48,7 @@ The site is then available at http://localhost:4200.
 ## Structure
 
 ```text
+brand/                           Brand images for social media, not served by the site
 functions/api/                   Pages Functions behind the forms
 public/                          Fonts, favicon, share image
 scripts/                         Content check and SEO files
