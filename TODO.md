@@ -29,13 +29,14 @@
 
 ## Launch
 
-- [ ] Register `da-sandro.be`, or update `siteUrl` if another domain is chosen
-- [ ] Create the Cloudflare Pages project with `npm run build` for the non-indexed preview
+- [x] Register `da-sandro.be`
+- [x] Create the Cloudflare Pages project with `npm run build` for the non-indexed preview
 - [ ] Switch the Cloudflare build command to `npm run build:prod` before launch
 - [ ] Create the Resend account and verify the sending domain
 - [ ] Set `RESEND_API_KEY`, `MAIL_FROM` and `MAIL_TO` in Cloudflare
 - [ ] Enable Cloudflare Web Analytics
-- [ ] Create the Google Business Profile as a service area, with no displayed address
+- [x] Create the Google Business Profile as a service area, with no displayed address
+- [ ] Verify the Google Business Profile, then add the website, opening hours and photos
 - [ ] Add the site and the sitemap to Google Search Console
 
 ## Checks after deployment
