@@ -5,6 +5,7 @@
   </div>
 } @else {
   <form class="grid gap-4 text-left sm:grid-cols-2" [formRoot]="form" novalidate>
+    <p class="text-sm font-semibold sm:col-span-2">Les champs marqués * sont obligatoires.</p>
     <div>
       <label class="field-label" for="eventType">Type d'événement *</label>
       <select

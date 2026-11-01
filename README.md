@@ -118,7 +118,7 @@ same description, because Google penalizes pages created only to target a town.
 - **Legal address:** it only appears in the legal notice. It must stay out of the structured data.
 - **Event prices:** they are never displayed. The quote is sent by email.
 - **Animations:** they must respect `prefers-reduced-motion` and keep the content visible without
-  JavaScript.
+  JavaScript. Anything looping must stop with the pause control (`.motion-paused`).
 - **Reviews:** copy them word for word and keep the notice that they are a selection, with the
   link to all reviews. No star markup: Google does not allow it on a business's own site.
 - **Photo placeholders:** they only exist in the `development` and `preview` configurations. A

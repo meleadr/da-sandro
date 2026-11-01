@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { MotionToggle } from './motion-toggle';
 
 const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région liégeoise'];
 
 @Component({
   selector: 'app-ticker',
-  imports: [FaIconComponent],
+  imports: [FaIconComponent, MotionToggle],
   host: { class: 'relative block overflow-hidden bg-orange py-2.5 text-brown' },
   template: `
     <div class="flex w-max animate-marquee motion-reduce:animate-none" aria-hidden="true">
@@ -29,6 +30,10 @@ const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région li
     >
       <fa-icon [icon]="truckIcon" />
     </div>
+    <app-motion-toggle
+      class="absolute inset-y-0 right-0 z-10 flex items-center bg-orange px-2"
+      [compact]="true"
+    />
   `,
 })
 export class Ticker {

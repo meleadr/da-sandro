@@ -59,6 +59,7 @@
 - [ ] Check the pages with Google's Rich Results Test
 - [ ] Measure Lighthouse online: 100 for SEO, at least 95 for performance and accessibility
 - [ ] Have the legal notice reviewed
+- [ ] Test the site with a screen reader (NVDA or VoiceOver)
 
 ## Later
 

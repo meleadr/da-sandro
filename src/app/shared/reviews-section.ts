@@ -20,7 +20,7 @@ import type { GoogleReviews } from '../../data/types';
               @for (review of reviews().items; track review.author) {
                 <li class="paper py-4" [style.--cascade-index]="$index">
                   <p
-                    class="flex gap-0.5 text-orange"
+                    class="flex gap-0.5 text-brown"
                     role="img"
                     [attr.aria-label]="review.rating + ' étoiles sur 5'"
                   >

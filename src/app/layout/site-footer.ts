@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { business } from '../../data/business';
+import { MotionToggle } from '../shared/motion-toggle';
 import { SocialLinks } from '../shared/social-links';
 import { NAV_LINKS } from './nav-links';
 
@@ -13,7 +14,7 @@ const AUTHOR = {
 
 @Component({
   selector: 'app-site-footer',
-  imports: [RouterLink, FaIconComponent, SocialLinks],
+  imports: [RouterLink, FaIconComponent, MotionToggle, SocialLinks],
   host: { class: 'block bg-brown text-cream' },
   template: `
     <footer class="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2 md:items-end">
@@ -36,6 +37,7 @@ const AUTHOR = {
           Mentions légales
         </a>
       </nav>
+      <app-motion-toggle class="text-center text-xs md:col-span-2" />
       <p class="text-center text-xs md:col-span-2">
         © {{ year }}
         @if (author.linkedinUrl) {

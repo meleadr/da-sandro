@@ -36,7 +36,7 @@ const PREVIEW_SIZE = 3;
   ],
   template: `
     <section
-      class="mx-auto grid max-w-6xl gap-6 px-4 pt-2 pb-8 text-center md:grid-cols-[1.25fr_1fr] md:items-center md:gap-10 md:px-6 md:pb-12 md:text-left"
+      class="mx-auto grid max-w-6xl gap-6 px-4 pt-2 pb-8 text-center md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:items-center md:gap-10 md:px-6 md:pb-12 md:text-left"
     >
       <div>
         <app-mascot class="mx-auto mb-3 size-28 md:mx-0 md:size-40" />

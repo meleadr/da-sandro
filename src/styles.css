@@ -98,6 +98,7 @@
 @layer components {
   /* Cream alone on cardboard lacks contrast: the brown outline keeps the title readable. */
   .title-sticker {
+    overflow-wrap: anywhere;
     color: var(--color-cream);
     font-family: var(--font-display);
     line-height: 1;
@@ -262,6 +263,11 @@
     color: var(--color-brown);
   }
 
+  .field:focus {
+    outline: 3px solid var(--color-brown);
+    outline-offset: 2px;
+  }
+
   .field[aria-invalid='true'] {
     border-width: 3px;
   }
@@ -347,4 +353,11 @@
       transform: none;
     }
   }
+}
+
+/* Outside any layer: the Tailwind animation utilities would override it otherwise. */
+.motion-paused .animate-marquee,
+.motion-paused .animate-drive,
+.motion-paused .animate-sway {
+  animation-play-state: paused;
 }
