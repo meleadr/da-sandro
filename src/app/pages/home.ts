@@ -4,13 +4,16 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLocationDot, faPhone, faPizzaSlice, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
 import { menu } from '../../data/menu';
+import { photos } from '../../data/photos';
 import { googleReviews } from '../../data/reviews';
 import { ServiceStatus } from '../schedule/service-status';
 import { WeeklySchedule } from '../schedule/weekly-schedule';
 import { Seo } from '../seo/seo';
 import { buildBusinessSchema } from '../seo/structured-data';
+import { showPhotoPlaceholders } from '../shared/build-flags';
 import { Mascot } from '../shared/mascot';
 import { MenuList } from '../shared/menu-list';
+import { PhotoGallery } from '../shared/photo-gallery';
 import { Reveal } from '../shared/reveal';
 import { ReviewsSection } from '../shared/reviews-section';
 import { Ticker } from '../shared/ticker';
@@ -24,6 +27,7 @@ const PREVIEW_SIZE = 3;
     FaIconComponent,
     Mascot,
     MenuList,
+    PhotoGallery,
     Reveal,
     ReviewsSection,
     ServiceStatus,
@@ -88,6 +92,8 @@ const PREVIEW_SIZE = 3;
       </div>
     </section>
 
+    <app-photo-gallery appReveal [photos]="photos" [placeholders]="photoPlaceholders" />
+
     <app-reviews-section appReveal [reviews]="reviews" />
 
     <section appReveal class="bg-orange px-4 py-10 text-center">
@@ -111,6 +117,8 @@ export class Home {
   protected readonly pizzaIcon = faPizzaSlice;
   protected readonly truckIcon = faTruck;
   protected readonly phone = business.phone;
+  protected readonly photos = photos;
+  protected readonly photoPlaceholders = showPhotoPlaceholders;
   protected readonly reviews = googleReviews;
   protected readonly preview = menu.categories[0].items.slice(0, PREVIEW_SIZE);
 

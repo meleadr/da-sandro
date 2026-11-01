@@ -38,7 +38,7 @@ The site is then available at http://localhost:4200.
 | `npm start` | Development server |
 | `npm test` | Unit tests in watch mode |
 | `npx ng test --watch=false` | Unit tests, single run |
-| `npm run build` | Full build, even with incomplete content |
+| `npm run build` | Preview build: allows incomplete content and shows photo placeholders |
 | `npm run check:content` | Lists what is missing before launch |
 | `npm run build:prod` | Checks the content, then builds. This is the production command |
 
@@ -78,6 +78,7 @@ site.
 | `places.ts` | Truck stops. Each one creates a page at `/emplacements/<slug>/` |
 | `schedule.ts` | Weekly schedule and exceptions |
 | `reviews.ts` | Google review links and selected reviews |
+| `photos.ts` | Real photos, stored in `public/photos/` |
 
 `provisional: true` marks example content: it blocks `build:prod`, and a provisional place never
 reaches the structured data.
@@ -120,6 +121,8 @@ same description, because Google penalizes pages created only to target a town.
   JavaScript.
 - **Reviews:** copy them word for word and keep the notice that they are a selection, with the
   link to all reviews. No star markup: Google does not allow it on a business's own site.
+- **Photo placeholders:** they only exist in the `development` and `preview` configurations. A
+  plain `ng build` and `build:prod` never contain them.
 - **Content:** nothing is made up. Missing information stays off the site.
 - **Accessibility:** orange text on the cardboard background lacks contrast. Orange is for
   backgrounds, not text.

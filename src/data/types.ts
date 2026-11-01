@@ -88,6 +88,13 @@ export interface Menu extends Draftable {
   readonly note: string;
 }
 
+export interface Photo {
+  readonly src: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+}
+
 export interface Review {
   /** First name and initial only. */
   readonly author: string;

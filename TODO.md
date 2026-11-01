@@ -31,13 +31,14 @@
 - [ ] Final logo, to replace the name in text
 - [ ] Mascot redrawn to match the logo, then regenerate the favicon and share image
 - [ ] 10 to 15 real photos of the truck, the pizzas and events
-- [ ] Once the photos exist: add them to the home, menu and events pages with tilted frames
+- [ ] Add the photos to `public/photos/` and list them in `src/data/photos.ts`
 
 ## Launch
 
 - [x] Register `da-sandro.be`
 - [x] Create the Cloudflare Pages project with `npm run build` for the non-indexed preview
-- [ ] Switch the Cloudflare build command to `npm run build:prod` before launch
+- [ ] Switch the Cloudflare build command to `npm run build:prod` before launch: this also
+      removes the photo placeholders
 - [ ] Create the Resend account and verify the sending domain
 - [ ] Set `RESEND_API_KEY`, `MAIL_FROM` and `MAIL_TO` in Cloudflare
 - [ ] Enable Cloudflare Web Analytics

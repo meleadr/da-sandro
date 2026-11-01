@@ -47,7 +47,15 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "define": {
+                "PHOTO_PLACEHOLDERS": "true"
+              }
+            },
+            "preview": {
+              "define": {
+                "PHOTO_PLACEHOLDERS": "true"
+              }
             }
           },
           "defaultConfiguration": "production"
