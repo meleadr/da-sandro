@@ -77,6 +77,7 @@ site.
 | `menu.ts` | Pizzas, drinks, prices in cents |
 | `places.ts` | Truck stops. Each one creates a page at `/emplacements/<slug>/` |
 | `schedule.ts` | Weekly schedule and exceptions |
+| `reviews.ts` | Google review links and selected reviews |
 
 `provisional: true` marks example content: it blocks `build:prod`, and a provisional place never
 reaches the structured data.
@@ -117,6 +118,8 @@ same description, because Google penalizes pages created only to target a town.
 - **Event prices:** they are never displayed. The quote is sent by email.
 - **Animations:** they must respect `prefers-reduced-motion` and keep the content visible without
   JavaScript.
+- **Reviews:** copy them word for word and keep the notice that they are a selection, with the
+  link to all reviews. No star markup: Google does not allow it on a business's own site.
 - **Content:** nothing is made up. Missing information stays off the site.
 - **Accessibility:** orange text on the cardboard background lacks contrast. Orange is for
   backgrounds, not text.

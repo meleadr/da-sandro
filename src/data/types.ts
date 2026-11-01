@@ -88,6 +88,21 @@ export interface Menu extends Draftable {
   readonly note: string;
 }
 
+export interface Review {
+  /** First name and initial only. */
+  readonly author: string;
+  /** Whole stars, 1 to 5. */
+  readonly rating: number;
+  /** Copied word for word from Google. */
+  readonly text: string;
+}
+
+export interface GoogleReviews {
+  readonly writeUrl: string;
+  readonly readUrl: string;
+  readonly items: readonly Review[];
+}
+
 export interface SiteContent {
   readonly business: Business;
   readonly places: readonly Place[];

@@ -4,6 +4,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faLocationDot, faPhone, faPizzaSlice, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
 import { menu } from '../../data/menu';
+import { googleReviews } from '../../data/reviews';
 import { ServiceStatus } from '../schedule/service-status';
 import { WeeklySchedule } from '../schedule/weekly-schedule';
 import { Seo } from '../seo/seo';
@@ -11,6 +12,7 @@ import { buildBusinessSchema } from '../seo/structured-data';
 import { Mascot } from '../shared/mascot';
 import { MenuList } from '../shared/menu-list';
 import { Reveal } from '../shared/reveal';
+import { ReviewsSection } from '../shared/reviews-section';
 import { Ticker } from '../shared/ticker';
 
 const PREVIEW_SIZE = 3;
@@ -23,6 +25,7 @@ const PREVIEW_SIZE = 3;
     Mascot,
     MenuList,
     Reveal,
+    ReviewsSection,
     ServiceStatus,
     Ticker,
     WeeklySchedule,
@@ -85,6 +88,8 @@ const PREVIEW_SIZE = 3;
       </div>
     </section>
 
+    <app-reviews-section appReveal [reviews]="reviews" />
+
     <section appReveal class="bg-orange px-4 py-10 text-center">
       <div class="mx-auto max-w-2xl">
         <span class="tag bg-brown text-cream">Événements</span>
@@ -106,6 +111,7 @@ export class Home {
   protected readonly pizzaIcon = faPizzaSlice;
   protected readonly truckIcon = faTruck;
   protected readonly phone = business.phone;
+  protected readonly reviews = googleReviews;
   protected readonly preview = menu.categories[0].items.slice(0, PREVIEW_SIZE);
 
   constructor() {

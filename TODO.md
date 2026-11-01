@@ -30,7 +30,8 @@
 
 - [ ] Final logo, to replace the name in text
 - [ ] Mascot redrawn to match the logo, then regenerate the favicon and share image
-- [ ] Real photos of the truck and the pizzas
+- [ ] 10 to 15 real photos of the truck, the pizzas and events
+- [ ] Once the photos exist: add them to the home, menu and events pages with tilted frames
 
 ## Launch
 
@@ -43,6 +44,8 @@
 - [ ] Add a Cloudflare rate limiting rule on `/api/*`
 - [x] Create the Google Business Profile as a service area, with no displayed address
 - [ ] Verify the Google Business Profile, then add the website, opening hours and photos
+- [ ] Add the Google review links to `src/data/reviews.ts`
+- [ ] Copy the first real reviews to `src/data/reviews.ts`, word for word
 - [ ] Add the site and the sitemap to Google Search Console
 
 ## Checks after deployment
@@ -58,5 +61,10 @@
 
 ## Later
 
+- [ ] Show the phone number in text on desktop
+- [ ] Add a fixed mobile action bar: "Y aller", "Appeler", "Devis"
+- [ ] Add the preferred time to the event form
+- [ ] Add "végétarien" and "piquant" badges to the menu
+- [ ] Write the Sandro story section and the detailed event offer, with an FAQ
 - [ ] Add Cloudflare Turnstile if the forms receive spam
 - [ ] Study online ordering: it would need a real server or a dedicated service
