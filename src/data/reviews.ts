@@ -10,8 +10,7 @@ import type { GoogleReviews } from './types';
  * Do not add review or rating markup for these: Google does not allow it on a business's own site.
  */
 export const googleReviews: GoogleReviews = {
-  // Public profile for now: replace writeUrl with the direct review link once it is available.
-  writeUrl: 'https://share.google/X2ParGaUJlSmKsLuW',
+  writeUrl: 'https://g.page/r/CUdbholpIS51ECE/review',
   readUrl: 'https://share.google/X2ParGaUJlSmKsLuW',
   items: [],
 };

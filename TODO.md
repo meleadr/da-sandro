@@ -44,7 +44,7 @@
 - [ ] Add a Cloudflare rate limiting rule on `/api/*`
 - [x] Create the Google Business Profile as a service area, with no displayed address
 - [ ] Verify the Google Business Profile, then add the website, opening hours and photos
-- [ ] Replace `writeUrl` in `src/data/reviews.ts` with the direct review link
+- [x] Add the direct review link to `src/data/reviews.ts`
 - [ ] Copy the first real reviews to `src/data/reviews.ts`, word for word
 - [ ] Add the site and the sitemap to Google Search Console
 
