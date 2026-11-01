@@ -361,3 +361,9 @@
 .motion-paused .animate-sway {
   animation-play-state: paused;
 }
+
+.motion-paused .mascot,
+.motion-paused .mascot-hop,
+.motion-paused .tag {
+  animation: none;
+}
