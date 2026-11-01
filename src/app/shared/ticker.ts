@@ -13,8 +13,11 @@ const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région li
       @for (copy of copies; track copy) {
         <ul class="flex shrink-0">
           @for (item of items; track item) {
-            <li class="px-3 text-xs font-black tracking-[0.12em] whitespace-nowrap uppercase">
-              ◆ {{ item }}
+            <li
+              class="flex items-center gap-4 pr-4 text-xs font-black tracking-[0.12em] whitespace-nowrap uppercase"
+            >
+              <span class="-mr-[0.12em]">{{ item }}</span>
+              <span class="tracking-normal">◆</span>
             </li>
           }
         </ul>
