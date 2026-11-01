@@ -24,7 +24,10 @@ import { SocialLinks } from '../shared/social-links';
           </a>
         }
         @if (business.email) {
-          <a [href]="'mailto:' + business.email" class="btn btn-outline tracking-normal normal-case">
+          <a
+            [href]="'mailto:' + business.email"
+            class="btn btn-outline tracking-normal normal-case"
+          >
             <fa-icon [icon]="emailIcon" aria-hidden="true" />
             {{ business.email }}
           </a>

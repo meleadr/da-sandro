@@ -1,0 +1,155 @@
+@if (sent()) {
+  <div class="rounded-xl bg-brown p-6 text-center text-cream" role="status">
+    <p class="font-display text-xl text-yellow">Merci !</p>
+    <p class="mt-2">Votre demande est bien partie. Vous recevrez une réponse par e-mail.</p>
+  </div>
+} @else {
+  <form class="grid gap-4 text-left sm:grid-cols-2" [formRoot]="form" novalidate>
+    <div>
+      <label class="field-label" for="eventType">Type d'événement *</label>
+      <select
+        id="eventType"
+        class="field"
+        [formField]="form.eventType"
+        [attr.aria-invalid]="error(form.eventType) ? true : null"
+        [attr.aria-describedby]="error(form.eventType) ? 'eventType-error' : null"
+        aria-required="true"
+      >
+        <option value="">Choisir</option>
+        @for (type of eventTypes; track type) {
+          <option [value]="type">{{ type }}</option>
+        }
+      </select>
+      @if (error(form.eventType); as message) {
+        <p id="eventType-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div>
+      <label class="field-label" for="date">Date *</label>
+      <input
+        id="date"
+        class="field"
+        type="date"
+        [formField]="form.date"
+        [attr.aria-invalid]="error(form.date) ? true : null"
+        [attr.aria-describedby]="error(form.date) ? 'date-error' : null"
+        aria-required="true"
+      />
+      @if (error(form.date); as message) {
+        <p id="date-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div>
+      <label class="field-label" for="location">Lieu *</label>
+      <input
+        id="location"
+        class="field"
+        type="text"
+        [formField]="form.location"
+        [attr.aria-invalid]="error(form.location) ? true : null"
+        [attr.aria-describedby]="error(form.location) ? 'location-error' : null"
+        aria-required="true"
+      />
+      @if (error(form.location); as message) {
+        <p id="location-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div>
+      <label class="field-label" for="guests">Nombre de personnes *</label>
+      <input
+        id="guests"
+        class="field"
+        type="number"
+        inputmode="numeric"
+        [formField]="form.guests"
+        [attr.aria-invalid]="error(form.guests) ? true : null"
+        [attr.aria-describedby]="error(form.guests) ? 'guests-error' : null"
+        aria-required="true"
+      />
+      @if (error(form.guests); as message) {
+        <p id="guests-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div>
+      <label class="field-label" for="name">Votre nom *</label>
+      <input
+        id="name"
+        class="field"
+        type="text"
+        autocomplete="name"
+        [formField]="form.name"
+        [attr.aria-invalid]="error(form.name) ? true : null"
+        [attr.aria-describedby]="error(form.name) ? 'name-error' : null"
+        aria-required="true"
+      />
+      @if (error(form.name); as message) {
+        <p id="name-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div>
+      <label class="field-label" for="email">Votre e-mail *</label>
+      <input
+        id="email"
+        class="field"
+        type="email"
+        autocomplete="email"
+        [formField]="form.email"
+        [attr.aria-invalid]="error(form.email) ? true : null"
+        [attr.aria-describedby]="error(form.email) ? 'email-error' : null"
+        aria-required="true"
+      />
+      @if (error(form.email); as message) {
+        <p id="email-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <div class="sm:col-span-2">
+      <label class="field-label" for="phone">Téléphone</label>
+      <input id="phone" class="field" type="tel" autocomplete="tel" [formField]="form.phone" />
+    </div>
+
+    <div class="sm:col-span-2">
+      <label class="field-label" for="message">Message</label>
+      <textarea
+        id="message"
+        class="field"
+        rows="4"
+        [formField]="form.message"
+        [attr.aria-invalid]="error(form.message) ? true : null"
+        [attr.aria-describedby]="error(form.message) ? 'message-error' : null"
+      ></textarea>
+      @if (error(form.message); as message) {
+        <p id="message-error" class="field-error">{{ message }}</p>
+      }
+    </div>
+
+    <!-- Hidden from visitors: only bots fill it in. -->
+    <div class="absolute -left-[9999px]" aria-hidden="true">
+      <label for="website">Ne pas remplir</label>
+      <input id="website" type="text" tabindex="-1" autocomplete="off" [formField]="form.website" />
+    </div>
+
+    <div class="sm:col-span-2">
+      @if (failed()) {
+        <p class="mb-3 rounded-lg bg-brown p-3 text-center text-sm text-cream" role="alert">
+          L'envoi a échoué, mais votre demande est conservée ci-dessus. Réessayez, ou appelez-nous
+          au <a class="font-bold underline" [href]="'tel:' + phone">{{ phoneLabel }}</a
+          >.
+        </p>
+      }
+      <button type="submit" class="btn btn-brown w-full" [disabled]="form().submitting()">
+        <fa-icon [icon]="sendIcon" aria-hidden="true" />
+        {{ form().submitting() ? 'Envoi…' : 'Demander un devis' }}
+      </button>
+      <p class="mt-3 text-center text-sm font-semibold">
+        Votre devis vous est envoyé par e-mail. Vos données servent uniquement à répondre à votre
+        demande.
+      </p>
+    </div>
+  </form>
+}

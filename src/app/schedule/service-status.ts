@@ -1,11 +1,4 @@
-import {
-  afterNextRender,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  signal,
-} from '@angular/core';
+import { afterNextRender, Component, computed, DestroyRef, inject, signal } from '@angular/core';
 import { business } from '../../data/business';
 import { places } from '../../data/places';
 import { schedule } from '../../data/schedule';

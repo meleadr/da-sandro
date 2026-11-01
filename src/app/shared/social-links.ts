@@ -1,6 +1,11 @@
 import { Component, input } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faFacebook, faInstagram, faTiktok, IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+  IconDefinition,
+} from '@fortawesome/free-brands-svg-icons';
 import type { SocialLink } from '../../data/types';
 
 const NETWORKS: Record<SocialLink['network'], { label: string; icon: IconDefinition }> = {

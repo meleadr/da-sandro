@@ -124,7 +124,9 @@ describe('content validation', () => {
       },
     };
 
-    expect(findStructureErrors(content)).toContain('schedule.weekly[0]: unknown place "nulle-part"');
+    expect(findStructureErrors(content)).toContain(
+      'schedule.weekly[0]: unknown place "nulle-part"',
+    );
   });
 
   it('refuses hours that end before they start', () => {

@@ -1,4 +1,4 @@
-import { DOCUMENT, inject, Injectable } from '@angular/core';
+import { DOCUMENT, inject, Service } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { business } from '../../data/business';
 
@@ -13,7 +13,7 @@ export interface PageSeo {
 }
 
 /** Sets the head of a page. It runs during prerendering, so the tags are in the static HTML. */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class Seo {
   private readonly document = inject(DOCUMENT);
   private readonly meta = inject(Meta);

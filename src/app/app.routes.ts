@@ -1,16 +1,20 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home';
-import { LegalPage } from './pages/legal-page';
-import { LocationsPage } from './pages/locations-page';
-import { MenuPage } from './pages/menu-page';
-import { NotFoundPage } from './pages/not-found-page';
-import { PlacePage } from './pages/place-page';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'carte', component: MenuPage },
-  { path: 'emplacements', component: LocationsPage },
-  { path: 'emplacements/:slug', component: PlacePage },
+  {
+    path: 'carte',
+    loadComponent: () => import('./pages/menu-page').then((page) => page.MenuPage),
+  },
+  {
+    path: 'emplacements',
+    loadComponent: () => import('./pages/locations-page').then((page) => page.LocationsPage),
+  },
+  {
+    path: 'emplacements/:slug',
+    loadComponent: () => import('./pages/place-page').then((page) => page.PlacePage),
+  },
   {
     path: 'evenements',
     loadComponent: () => import('./pages/events-page').then((page) => page.EventsPage),
@@ -19,8 +23,17 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact-page').then((page) => page.ContactPage),
   },
-  { path: 'mentions-legales', component: LegalPage },
+  {
+    path: 'mentions-legales',
+    loadComponent: () => import('./pages/legal-page').then((page) => page.LegalPage),
+  },
   // Prerendered once, then moved to /404.html by scripts/generate-seo-files.mts.
-  { path: '404', component: NotFoundPage },
-  { path: '**', component: NotFoundPage },
+  {
+    path: '404',
+    loadComponent: () => import('./pages/not-found-page').then((page) => page.NotFoundPage),
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/not-found-page').then((page) => page.NotFoundPage),
+  },
 ];

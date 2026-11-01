@@ -42,11 +42,7 @@ import { NAV_LINKS } from './nav-links';
             class="absolute inset-x-4 top-full z-20 grid gap-2 rounded-xl bg-brown p-3 shadow-lg"
           >
             @for (link of links; track link.path) {
-              <a
-                [routerLink]="link.path"
-                class="btn text-cream btn-outline"
-                (click)="closeMenu()"
-              >
+              <a [routerLink]="link.path" class="btn text-cream btn-outline" (click)="closeMenu()">
                 {{ link.label }}
               </a>
             }

@@ -17,7 +17,9 @@ import { Reveal } from '../shared/reveal';
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
       <span class="tag">Où nous trouver</span>
-      <h1 class="title-sticker mt-4 mb-6 text-4xl md:text-6xl">Emplacements</h1>
+      <h1 class="title-sticker mt-4 mb-6 text-[1.7rem] min-[380px]:text-4xl md:text-6xl">
+        Emplacements
+      </h1>
       <app-service-status />
     </section>
 

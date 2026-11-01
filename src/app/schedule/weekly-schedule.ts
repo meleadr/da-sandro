@@ -67,7 +67,6 @@ export class WeeklySchedule {
     });
   }
 
-
   protected dayName(service: WeeklyService): string {
     return WEEKDAY_NAMES[service.weekday];
   }

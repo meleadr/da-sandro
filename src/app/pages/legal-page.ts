@@ -43,9 +43,9 @@ import { Seo } from '../seo/seo';
           commerciales.
         </p>
         <p class="mt-2">
-          Les messages transitent par Cloudflare et Resend, qui assurent l'hébergement et l'envoi des
-          e-mails, et sont reçus sur une boîte Gmail. Ils sont conservés 12 mois après le dernier
-          échange, puis supprimés, sauf obligation légale.
+          Les messages transitent par Cloudflare et Resend, qui assurent l'hébergement et l'envoi
+          des e-mails, et sont reçus sur une boîte Gmail. Ils sont conservés 12 mois après le
+          dernier échange, puis supprimés, sauf obligation légale.
         </p>
         <p class="mt-2">
           Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression en
@@ -57,8 +57,8 @@ import { Seo } from '../seo/seo';
           suivi individuel des visiteurs.
         </p>
         <p class="mt-2">
-          La carte Google Maps des pages d'emplacements ne se charge que si vous cliquez sur « Afficher
-          la carte ». Google peut alors déposer ses propres cookies.
+          La carte Google Maps des pages d'emplacements ne se charge que si vous cliquez sur «
+          Afficher la carte ». Google peut alors déposer ses propres cookies.
         </p>
       </div>
     </section>

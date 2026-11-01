@@ -10,8 +10,7 @@ export interface HandlerResult {
 }
 
 export type ParsedForm<T> =
-  | { readonly ok: true; readonly value: T }
-  | { readonly ok: false; readonly errors: unknown };
+  { readonly ok: true; readonly value: T } | { readonly ok: false; readonly errors: unknown };
 
 export interface FormMail {
   readonly replyTo: string;

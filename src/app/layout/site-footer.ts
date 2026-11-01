@@ -6,7 +6,10 @@ import { business } from '../../data/business';
 import { SocialLinks } from '../shared/social-links';
 import { NAV_LINKS } from './nav-links';
 
-const AUTHOR = { name: 'Adriano Meledina', linkedinUrl: 'https://www.linkedin.com/in/adrianomeledina/' };
+const AUTHOR = {
+  name: 'Adriano Meledina',
+  linkedinUrl: 'https://www.linkedin.com/in/adrianomeledina/',
+};
 
 @Component({
   selector: 'app-site-footer',

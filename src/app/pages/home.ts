@@ -1,12 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import {
-  faLocationDot,
-  faPhone,
-  faPizzaSlice,
-  faTruck,
-} from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPhone, faPizzaSlice, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { business } from '../../data/business';
 import { menu } from '../../data/menu';
 import { ServiceStatus } from '../schedule/service-status';

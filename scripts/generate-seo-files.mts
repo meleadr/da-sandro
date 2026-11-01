@@ -6,7 +6,14 @@ import { schedule } from '../src/data/schedule.ts';
 import { findPublishErrors } from '../src/data/validate-content.ts';
 
 const OUTPUT = 'dist/da-sandro/browser';
-const STATIC_PATHS = ['/', '/carte/', '/emplacements/', '/evenements/', '/contact/', '/mentions-legales/'];
+const STATIC_PATHS = [
+  '/',
+  '/carte/',
+  '/emplacements/',
+  '/evenements/',
+  '/contact/',
+  '/mentions-legales/',
+];
 
 // Angular's prerendered pages need inline scripts and styles. Google is only used by the map,
 // and Cloudflare Insights by Web Analytics.

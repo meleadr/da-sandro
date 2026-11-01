@@ -68,7 +68,10 @@ export function findStructureErrors(content: SiteContent): string[] {
 
   for (const category of content.menu.categories) {
     for (const item of category.items) {
-      if (item.priceCents !== null && (!Number.isInteger(item.priceCents) || item.priceCents <= 0)) {
+      if (
+        item.priceCents !== null &&
+        (!Number.isInteger(item.priceCents) || item.priceCents <= 0)
+      ) {
         errors.push(`menu: invalid price for "${item.name}"`);
       }
     }

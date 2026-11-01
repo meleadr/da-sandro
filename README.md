@@ -13,6 +13,7 @@ What remains to be done before launch is listed in [TODO.md](TODO.md).
 ## Stack
 
 - [Angular](https://angular.dev) 22, prerendered at build time (`outputMode: "static"`)
+- Angular Signal Forms (`@angular/forms/signals`) for the forms
 - [Tailwind CSS](https://tailwindcss.com) 4
 - [Font Awesome](https://fontawesome.com) SVG icons, imported one by one
 - [Vitest](https://vitest.dev) for tests
@@ -131,8 +132,10 @@ Lighthouse targets on mobile: 100 for SEO, at least 95 for performance and acces
 
 ## Forms
 
-The site has two forms: the event request (`/api/event-request`) and the contact form
-(`/api/contact`). Each Pages Function validates the data with the same rules as the browser, then
+The site has two forms, built with Signal Forms: the event request (`/api/event-request`) and the
+contact form (`/api/contact`). The validation rules live in plain functions shared with the Pages
+Functions (`event-request.ts`, `contact-request.ts`), so they stay free of Angular. Each schema
+maps their errors onto the fields with `validateTree`. After validating the data again,
 `src/app/shared/form-submission.ts` sends the email through Resend. Replies go straight to the
 customer thanks to `reply_to`.
 

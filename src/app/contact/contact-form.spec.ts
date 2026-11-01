@@ -10,10 +10,10 @@ async function setup() {
   const fill = (id: string, value: string) => {
     const field = element.querySelector<HTMLInputElement>(`#${id}`)!;
     field.value = value;
-    field.dispatchEvent(new Event('input'));
+    field.dispatchEvent(new Event('input', { bubbles: true }));
   };
   const submit = async () => {
-    element.querySelector('form')!.dispatchEvent(new Event('submit'));
+    element.querySelector('form')!.dispatchEvent(new Event('submit', { cancelable: true }));
     await new Promise((resolve) => setTimeout(resolve));
     await fixture.whenStable();
   };

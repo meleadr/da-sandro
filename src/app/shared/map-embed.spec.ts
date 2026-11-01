@@ -28,7 +28,9 @@ describe('MapEmbed', () => {
 
     fixture.componentRef.setInput('query', '4460 Grâce-Hollogne');
     await fixture.whenStable();
-    expect(element.querySelector('iframe')?.src).toContain(encodeURIComponent('4460 Grâce-Hollogne'));
+    expect(element.querySelector('iframe')?.src).toContain(
+      encodeURIComponent('4460 Grâce-Hollogne'),
+    );
   });
 });
 

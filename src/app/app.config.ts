@@ -1,10 +1,6 @@
 import { LocationStrategy, TrailingSlashPathLocationStrategy } from '@angular/common';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
-} from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 

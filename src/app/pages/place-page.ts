@@ -19,7 +19,9 @@ import { Reveal } from '../shared/reveal';
     @if (place(); as place) {
       <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
         <span class="tag">Food truck pizza</span>
-        <h1 class="title-sticker mt-4 text-4xl md:text-6xl">{{ place.name }}</h1>
+        <h1 class="title-sticker mt-4 text-[1.6rem] min-[380px]:text-3xl sm:text-4xl md:text-6xl">
+          {{ place.name }}
+        </h1>
         <p class="mt-4 font-bold">
           {{ address() ?? 'Adresse exacte bientôt disponible' }}
         </p>
