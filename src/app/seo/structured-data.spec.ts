@@ -59,6 +59,7 @@ describe('buildBusinessSchema', () => {
       telephone: '+32470000000',
       priceRange: '8.00 € - 11.00 €',
       areaServed: { name: 'Région liégeoise' },
+      logo: 'https://example.be/apple-touch-icon.png',
     });
     expect(schema).not.toHaveProperty('address');
     expect(JSON.stringify(schema)).not.toContain('Rue Privée');

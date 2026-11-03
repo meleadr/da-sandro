@@ -33,6 +33,10 @@ export class Seo {
       ['og:locale', 'fr_BE'],
       ['og:site_name', business.name],
       ['og:image', `${business.siteUrl}/og-image.png`],
+      // With the size, Facebook shows the preview on the first share instead of waiting for it.
+      ['og:image:width', '1200'],
+      ['og:image:height', '630'],
+      ['og:image:alt', `${business.name}, pizzeria food truck en région liégeoise`],
     ]) {
       this.meta.updateTag({ property, content });
     }

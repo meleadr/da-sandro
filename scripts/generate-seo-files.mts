@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { readdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { business } from '../src/data/business.ts';
 import { menu } from '../src/data/menu.ts';
@@ -34,9 +35,27 @@ const CONTENT_SECURITY_POLICY = [
 const publishable = findPublishErrors({ business, places, schedule, menu }).length === 0;
 const paths = [...STATIC_PATHS, ...places.map(({ slug }) => `/emplacements/${slug}/`)];
 
+// Google ignores lastmod when it moves on every deployment, so it follows the last commit that
+// changed the site. The build date is the fallback when git is not available.
+function lastModified(): string {
+  try {
+    const date = execFileSync('git', ['log', '-1', '--format=%cs', '--', 'src', 'public'], {
+      encoding: 'utf8',
+    }).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return date;
+    }
+  } catch {
+    // No git history in this build environment.
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
+const lastmod = lastModified();
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((path) => `  <url><loc>${business.siteUrl}${path}</loc></url>`).join('\n')}
+${paths.map((path) => `  <url><loc>${business.siteUrl}${path}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}
 </urlset>
 `;
 

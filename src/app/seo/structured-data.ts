@@ -38,6 +38,8 @@ export function buildBusinessSchema(business: Business, menu: Menu): JsonLd {
     name: business.name,
     url: `${business.siteUrl}/`,
     image: `${business.siteUrl}/og-image.png`,
+    // Temporary: replace with the final logo once it exists (see TODO.md).
+    logo: `${business.siteUrl}/apple-touch-icon.png`,
     telephone: business.phone,
     email: business.email,
     servesCuisine: ['Pizza', 'Italienne'],
