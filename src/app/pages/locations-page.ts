@@ -9,28 +9,27 @@ import { WeeklySchedule } from '../schedule/weekly-schedule';
 import { Seo } from '../seo/seo';
 import { MapEmbed } from '../shared/map-embed';
 import { fullAddress, mapQuery } from '../shared/place-address';
-import { Reveal } from '../shared/reveal';
 
 @Component({
   selector: 'app-locations-page',
-  imports: [RouterLink, FaIconComponent, MapEmbed, Reveal, ServiceStatus, WeeklySchedule],
+  imports: [RouterLink, FaIconComponent, MapEmbed, ServiceStatus, WeeklySchedule],
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-      <span class="tag">Où nous trouver</span>
+      <span class="tag">Région liégeoise</span>
       <h1 class="title-sticker mt-4 mb-6 text-[1.7rem] min-[380px]:text-4xl md:text-6xl">
         Emplacements
       </h1>
-      <app-service-status />
+      <app-service-status [weekLink]="false" />
     </section>
 
-    <section appReveal class="bg-brown px-4 py-10 text-center text-cream">
+    <section class="bg-brown px-4 py-10 text-center text-cream">
       <div class="mx-auto max-w-2xl">
         <h2 class="mb-5 font-display text-2xl">La semaine du camion</h2>
         <app-weekly-schedule />
       </div>
     </section>
 
-    <section appReveal class="mx-auto max-w-3xl px-4 py-10 text-center">
+    <section class="mx-auto max-w-3xl px-4 py-10 text-center">
       <h2 class="mb-5 font-display text-2xl">Nos lieux</h2>
 
       <div class="grid gap-3 sm:grid-cols-2">
@@ -54,7 +53,7 @@ import { Reveal } from '../shared/reveal';
               (click)="selected.set(place)"
             >
               <fa-icon [icon]="locationIcon" aria-hidden="true" />
-              Voir sur la carte
+              Voir sur le plan
             </button>
           </div>
         }

@@ -9,12 +9,11 @@ import { WeeklySchedule } from '../schedule/weekly-schedule';
 import { Seo } from '../seo/seo';
 import { buildPlaceSchema } from '../seo/structured-data';
 import { MapEmbed } from '../shared/map-embed';
-import { fullAddress, mapQuery } from '../shared/place-address';
-import { Reveal } from '../shared/reveal';
+import { directionsUrl, fullAddress, mapQuery } from '../shared/place-address';
 
 @Component({
   selector: 'app-place-page',
-  imports: [RouterLink, FaIconComponent, MapEmbed, Reveal, WeeklySchedule],
+  imports: [RouterLink, FaIconComponent, MapEmbed, WeeklySchedule],
   template: `
     @if (place(); as place) {
       <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
@@ -36,7 +35,7 @@ import { Reveal } from '../shared/reveal';
         }
       </section>
 
-      <section appReveal class="bg-brown px-4 py-10 text-center text-cream">
+      <section class="bg-brown px-4 py-10 text-center text-cream">
         <div class="mx-auto max-w-2xl">
           <h2 class="mb-5 font-display text-2xl">Horaires à {{ place.name }}</h2>
           <app-weekly-schedule [placeSlug]="place.slug" />
@@ -72,10 +71,8 @@ export class PlacePage {
   });
 
   protected readonly directionsUrl = computed(() => {
-    const address = this.address();
-    return address
-      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`
-      : null;
+    const place = this.place();
+    return place ? directionsUrl(place) : null;
   });
 
   constructor() {

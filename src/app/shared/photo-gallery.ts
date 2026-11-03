@@ -14,12 +14,11 @@ const PLACEHOLDERS = ['Le camion', 'Le four', 'Une pizza', 'La pâte', 'Un évé
     @if (visible()) {
       <section class="bg-brown px-4 py-10 text-center text-cream">
         <div class="mx-auto max-w-4xl">
-          <span class="tag">En images</span>
-          <h2 class="mt-3 mb-6 font-display text-2xl md:text-3xl">Le camion en vrai</h2>
+          <h2 class="mb-6 font-display text-2xl md:text-3xl">Le camion en vrai</h2>
 
-          <ul class="cascade grid grid-cols-2 gap-4 md:grid-cols-3">
+          <ul class="grid grid-cols-2 gap-4 md:grid-cols-3">
             @for (photo of photos(); track photo.src) {
-              <li class="photo-frame" [style.--cascade-index]="$index">
+              <li class="photo-frame">
                 <img
                   class="size-full object-cover"
                   [alt]="photo.alt"
@@ -31,7 +30,7 @@ const PLACEHOLDERS = ['Le camion', 'Le four', 'Une pizza', 'La pâte', 'Un évé
             }
             @if (photos().length === 0) {
               @for (label of placeholderLabels; track label) {
-                <li class="photo-frame" [style.--cascade-index]="$index">
+                <li class="photo-frame">
                   <div
                     class="flex size-full flex-col items-center justify-center gap-2 bg-cardboard p-2 text-brown"
                   >

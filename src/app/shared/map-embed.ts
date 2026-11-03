@@ -16,16 +16,16 @@ import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           [src]="source()"
-          [title]="'Carte : ' + label()"
+          [title]="'Plan : ' + label()"
         ></iframe>
       } @else {
         <div class="flex size-full flex-col items-center justify-center gap-3 p-5 text-center">
           <fa-icon class="text-3xl text-yellow" [icon]="mapIcon" aria-hidden="true" />
           <button type="button" class="btn btn-orange" (click)="visible.set(true)">
-            Afficher la carte
+            Afficher le plan
           </button>
           <p class="max-w-sm text-xs">
-            La carte est fournie par Google Maps, qui peut déposer ses propres cookies.
+            Le plan est fourni par Google Maps, qui peut déposer ses propres cookies.
           </p>
         </div>
       }

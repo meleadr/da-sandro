@@ -16,7 +16,7 @@ describe('MapEmbed', () => {
     const { element } = await render('4000 Liège');
 
     expect(element.querySelector('iframe')).toBeNull();
-    expect(element.textContent).toContain('Afficher la carte');
+    expect(element.textContent).toContain('Afficher le plan');
   });
 
   it('loads the map after the click and follows a new query', async () => {

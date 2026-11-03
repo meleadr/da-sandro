@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { EventForm } from '../events/event-form';
 import { Seo } from '../seo/seo';
-import { Reveal } from '../shared/reveal';
 
 @Component({
   selector: 'app-events-page',
-  imports: [EventForm, Reveal],
+  imports: [EventForm],
   template: `
     <section class="mx-auto max-w-2xl px-4 pt-6 pb-10 text-center">
-      <span class="tag">Événements</span>
+      <span class="tag">Mariages, fêtes, entreprises</span>
       <h1 class="title-sticker mt-4 text-4xl md:text-6xl">Le camion chez vous</h1>
       <p class="mt-5 font-semibold">
         Mariage, anniversaire, événement d'entreprise : Da Sandro se déplace partout en région
@@ -16,7 +15,7 @@ import { Reveal } from '../shared/reveal';
       </p>
     </section>
 
-    <section appReveal class="bg-orange px-4 py-10">
+    <section class="bg-orange px-4 py-10">
       <div class="mx-auto max-w-2xl">
         <h2 class="mb-6 text-center font-display text-2xl">Demander un devis</h2>
         <app-event-form />

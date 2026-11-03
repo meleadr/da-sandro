@@ -54,7 +54,7 @@
 - [ ] Send a real request through both forms and receive the emails
 - [ ] Reply to that email: the reply must go to the customer
 - [ ] Try the mobile menu on a real phone
-- [ ] Try "Appeler", "Y aller" and "Afficher la carte" with real data
+- [ ] Try the phone link, "Y aller" and "Afficher le plan" with real data
 - [ ] Check that an unknown URL returns a 404 status
 - [ ] Check the pages with Google's Rich Results Test
 - [ ] Measure Lighthouse online: 100 for SEO, at least 95 for performance and accessibility
@@ -63,7 +63,6 @@
 
 ## Later
 
-- [ ] Show the phone number in text on desktop
 - [ ] Add a fixed mobile action bar: "Y aller", "Appeler", "Devis"
 - [ ] Add the preferred time to the event form
 - [ ] Add "végétarien" and "piquant" badges to the menu

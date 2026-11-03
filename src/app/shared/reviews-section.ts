@@ -12,13 +12,13 @@ import type { GoogleReviews } from '../../data/types';
     @if (visible()) {
       <section class="px-4 py-10 text-center">
         <div class="mx-auto max-w-4xl">
-          <span class="tag">Avis</span>
+          <span class="tag">Avis Google</span>
           <h2 class="mt-3 mb-5 font-display text-2xl md:text-3xl">Ils ont goûté</h2>
 
           @if (reviews().items.length > 0) {
-            <ul class="cascade grid gap-4 text-left md:grid-cols-3">
+            <ul class="grid gap-4 text-left md:grid-cols-3">
               @for (review of reviews().items; track review.author) {
-                <li class="paper py-4" [style.--cascade-index]="$index">
+                <li class="paper py-4">
                   <p
                     class="flex gap-0.5 text-brown"
                     role="img"

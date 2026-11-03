@@ -1,9 +1,26 @@
 import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { places } from '../../data/places';
+import { schedule } from '../../data/schedule';
+import { WEEKDAY_NAMES } from '../schedule/weekly-schedule';
 import { MotionToggle } from './motion-toggle';
 
-const ITEMS = ['Pizzas', 'Mariages', 'Anniversaires', 'Entreprises', 'Région liégeoise'];
+/**
+ * The week of the truck, then the events. It is decoration hidden from assistive technology:
+ * the same facts are in the schedule section, which also works when the motion is paused.
+ */
+const ITEMS = [
+  ...[...schedule.weekly]
+    .sort((a, b) => a.weekday - b.weekday || a.start.localeCompare(b.start))
+    .map((service) => {
+      const place = places.find((candidate) => candidate.slug === service.placeSlug);
+      return `${WEEKDAY_NAMES[service.weekday]} à ${place?.name ?? ''}, ${service.start}`;
+    }),
+  'Mariages',
+  'Anniversaires',
+  'Entreprises',
+];
 
 @Component({
   selector: 'app-ticker',

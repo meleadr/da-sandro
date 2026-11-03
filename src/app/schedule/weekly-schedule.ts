@@ -5,7 +5,7 @@ import { schedule } from '../../data/schedule';
 import type { Weekday, WeeklyService } from '../../data/types';
 import { findNextService, isoWeekday } from './service-finder';
 
-const WEEKDAY_NAMES: Record<Weekday, string> = {
+export const WEEKDAY_NAMES: Record<Weekday, string> = {
   1: 'Lundi',
   2: 'Mardi',
   3: 'Mercredi',
@@ -21,11 +21,10 @@ const WEEKDAY_NAMES: Record<Weekday, string> = {
   imports: [RouterLink],
   host: { class: 'block' },
   template: `
-    <ul class="cascade grid gap-1.5">
+    <ul class="grid gap-1.5">
       @for (service of services(); track service.weekday + service.start) {
         <li
           class="flex flex-wrap items-center justify-between gap-x-4 gap-y-0.5 rounded-lg bg-brown-light px-3 py-2.5 text-left text-sm"
-          [style.--cascade-index]="$index"
           [class.font-extrabold]="isNext(service)"
           [class.outline-2]="isNext(service)"
           [class.outline-orange]="isNext(service)"
