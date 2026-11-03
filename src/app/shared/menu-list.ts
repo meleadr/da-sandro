@@ -1,14 +1,17 @@
 import { Component, computed, input } from '@angular/core';
 import type { MenuItem } from '../../data/types';
+import { Cascade } from './cascade';
 import { formatPrice } from './format-price';
 
 /** The menu painted on the side of the truck. */
 @Component({
   selector: 'app-menu-list',
+  imports: [Cascade],
   host: { class: 'board block' },
   template: `
     <!-- In two columns, the list fills the left column first, like a printed menu. -->
     <ul
+      appCascade
       class="board-inner px-5 py-1.5 md:px-7"
       [class]="columns() ? 'md:grid md:grid-flow-col md:gap-x-12' : ''"
       [style.grid-template-rows]="columns() ? 'repeat(' + rows() + ', auto)' : null"

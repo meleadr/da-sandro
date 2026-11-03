@@ -3,12 +3,13 @@ import { Component, computed, input } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import type { Photo } from '../../data/types';
+import { Cascade } from './cascade';
 
 const PLACEHOLDERS = ['Le camion', 'Le four', 'Une pizza', 'La pâte', 'Un événement', 'Sandro'];
 
 @Component({
   selector: 'app-photo-gallery',
-  imports: [FaIconComponent, NgOptimizedImage],
+  imports: [Cascade, FaIconComponent, NgOptimizedImage],
   host: { class: 'block' },
   template: `
     @if (visible()) {
@@ -16,7 +17,7 @@ const PLACEHOLDERS = ['Le camion', 'Le four', 'Une pizza', 'La pâte', 'Un évé
         <div class="mx-auto max-w-4xl">
           <h2 class="mb-6 font-display text-2xl md:text-3xl">Le camion en vrai</h2>
 
-          <ul class="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <ul appCascade class="grid grid-cols-2 gap-4 md:grid-cols-3">
             @for (photo of photos(); track photo.src) {
               <li class="photo-frame">
                 <img
